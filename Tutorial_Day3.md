@@ -6,7 +6,10 @@ $\color{#58A6FF}\textsf{\Large\&#x24D8;\kern{0.2cm}\normalsize Note}$
 Do not forget to activate the conda environment
 
 ``` 
-conda activate /home/sunam225/miniconda3/miniconda4.9.2/usr/etc/profile.d/conda.sh/envs/anvio-7.1
+module load gcc12-env/12.1.0
+module load miniconda3/4.12.0
+module load micromamba/1.3.1
+
 cd $WORK/Day5
 anvi-interactive -p 5_anvio_profiles/merged_profiles/PROFILE.db -c contigs.db -C METABAT
 
