@@ -8,7 +8,7 @@ Do not forget to activate the conda environment
 ``` 
 module load gcc12-env/12.1.0
 module load miniconda3/4.12.0
-module load micromamba/1.3.1
+conda activate anvio-8
 
 cd $WORK/Day5
 anvi-interactive -p 5_anvio_profiles/merged_profiles/PROFILE.db -c contigs.db -C METABAT
@@ -16,7 +16,7 @@ anvi-interactive -p 5_anvio_profiles/merged_profiles/PROFILE.db -c contigs.db -C
 ``` 
 ## Assembly visualization
 
-To count the number of countigs in your final assembly file
+To count the number of contigs in your final assembly file
 ```
 grep -c ">" final.contigs.fa
 ```
