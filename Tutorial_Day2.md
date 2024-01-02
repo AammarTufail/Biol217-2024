@@ -7,26 +7,26 @@ In this tutorial, the aim is to learn how to assemble Metagenome Assembled Genom
 You will start by 
 * Pre-processing the raw reads (trimming adapters, removing chimeras, removing phiX174 virus sequences…) 
 * Assemble reads into contigs/fasta
-* Asses quality of assemblies
+* Assess quality of assemblies
 * Bin contigs into MAGs
-* Asses completeness, contamination, and strain heterogeneity of your MAGs
+* Asses the completeness, contamination, and strain heterogeneity of your MAGs
 
-**! We are not taking credit for the tools, we are simply explaining how they work for an inhouse tutorial !** 
+**! We are not taking credit for the tools, we are simply explaining how they work for an in-house tutorial !** 
 
 ## Tools used in tutorials Day2, Day3 and Day4
 
 | Tool | Version | Repository |
 | --- | --- | --- |
-| fastqc | 0.11.9 | [FastQC](https://github.com/s-andrews/FastQC ) |
-| fastp | 0.22.0 | [fastp](https://github.com/OpenGene/fastp ) |
+| fastqc | 0.12.1 | [FastQC](https://github.com/s-andrews/FastQC ) |
+| fastp | 0.23.4 | [fastp](https://github.com/OpenGene/fastp ) |
 | megahit | 1.2.9 | [megahit](https://github.com/voutcn/megahit ) |
-| samtools | 1.9 | [samtools](https://github.com/samtools/samtools ) |
-| QUAST | 5.0.2 | [quast](https://quast.sourceforge.net/quast ) |
+| samtools | 1.19 | [samtools](https://github.com/samtools/samtools ) |
+| QUAST | 5.2.0 | [quast](https://quast.sourceforge.net/quast ) |
 | Bowtie2 | 2.4.5 | [bowtie2](https://bowtie-bio.sourceforge.net/bowtie2/index.shtml ) |
 | Concoct | 1.1.0 | [CONCOCT](https://github.com/BinPro/CONCOCT ) |
 | MetaBAT2 | 2.12.1 | [Metabat2](https://bitbucket.org/berkeleylab/metabat/src/master/ ) |
 | DASTool | 1.1.5 | [DAS_Tool](https://github.com/cmks/DAS_Tool ) |
-| anvi´o | 7.1 | [anvi’o](https://anvio.org/ ) |
+| anvi´o | 8 | [anvi’o](https://anvio.org/ ) |
 | GUNC | 1.0.5 | [GUNC](https://grp-bork.embl-community.io/gunc/ ) |
 
 ## Bash script and the working system
@@ -45,7 +45,7 @@ An Example script ${\color{red}“anviscript”}$ is found in folder ${\color{re
 
 Note, that every job script starts with the directive **#!/bin/bash** on the first line. The subsequent lines contain the directive **#SBATCH**, followed by a specific resource request or some other job information
 
-After the lines with the SBATCH settings, pre-installed modules can be loaded (if required). If in doubt, a list of these can be called with < **module av** >. At the end of the job script, one finally specifies the program call. In order to adjust resources at a later date the line <**jobinfo**> is added to the script. This will generate a report on requested and used resources within the stdout file.
+After the lines with the SBATCH settings, pre-installed modules can be loaded (if required). If in doubt, a list of these can be called with < **module av** >. At the end of the job script, one finally specifies the program call. To adjust resources at a later date the line <**jobinfo**> is added to the script. This will generate a report on requested and used resources within the stdout file.
   
 ### Batch parameters
 
@@ -140,7 +140,7 @@ All packages and programs needed are already installed into one conda environmen
 ```
 module load gcc12-env/12.1.0
 module load miniconda3/4.12.0
-conda activate /zfshome/sunam226/.conda/envs/anvio
+conda activate anvio-8
 ``` 
 
 
@@ -188,7 +188,6 @@ $\color{#58A6FF}\textsf{\Large\&#x24D8;\kern{0.2cm}\normalsize Note}$
 DO NOT FORGET TO SUBMIT YOUR COMMAND IN A BATCH SCRIPT!
 
 ```
-conda activate fastqc
 fastqc file.gz -o output_folder/ 
 ``` 
 
@@ -203,7 +202,7 @@ for i in *.gz; do fastqc $i -o output_folder/; done
   
 [fastp](https://github.com/OpenGene/fastp ) allows you to process the reads using different parameters. The following command loops over your data applying fastp. As we have paired end readings we need to specify two different inputs for **R1** and **R2** files, which makes the loop look a little complicated.
 
-For a better understanding you will find the single command below.
+For a better understanding, you will find the single command below.
 
 ```
 fastp -i sample1_R1.fastq.gz -I sample1_R2.fastq.gz -R fastp_report -o sample1_R1_clean.fastq.gz -O sample1_R2_clean.fastq.gz -t 6 -q 20
@@ -242,7 +241,7 @@ Coassembly, multiple samples:
 ```
 cd /PATH/TO/CLEAN/READS
                                        
-megahit -1 sample1_R1_clean.fastq.gz -1 sample2_R1_clean.fastq.gz -1 sample3_R1_clean.fastq.gz -2 sample1_R2_clean.fastq.gz -2 sample2_R2_clean.fastq.gz -2 sample3_R2_clean.fastq.gz --min-contig-len 1000 --presets meta-large -m 0.85 -o /PATH/TO/3_coassembly/ -t 20                      
+megahit -1 sample1_R1_clean.fastq.gz -1 sample2_R1_clean.fastq.gz -1 sample3_R1_clean.fastq.gz -2 sample1_R2_clean.fastq.gz -2 sample2_R2_clean.fastq.gz -2 sample3_R2_clean.fastq.gz --min-contig-len 1000 --presets meta-large -m 0.85 -o /PATH/TO/3_coassembly/ -t 12                      
 ```
                                        
 > `-1` path to R1 file\
