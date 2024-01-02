@@ -137,8 +137,10 @@ In summary, The samples originated from one mesophilic agricultural biogas plant
   
 All packages and programs needed are already installed into one conda environment. Activate this environment every time you open a terminal using the following command:
 
-``` 
-conda activate /home/sunam226/.conda/envs/anvio
+```
+module load gcc12-env/12.1.0
+module load miniconda3/4.12.0
+conda activate /zfshome/sunam226/.conda/envs/anvio
 ``` 
 
 
@@ -185,7 +187,8 @@ The first command allows you to loop over all files ending with **.gz** (can be 
 $\color{#58A6FF}\textsf{\Large\&#x24D8;\kern{0.2cm}\normalsize Note}$
 DO NOT FORGET TO SUBMIT YOUR COMMAND IN A BATCH SCRIPT!
 
-``` 
+```
+conda activate fastqc
 fastqc file.gz -o output_folder/ 
 ``` 
 
