@@ -262,6 +262,7 @@ This command line will return a folder where you will find the following files:
 > `RUNNLOG.txt` the anvi´o log of your run\
 > `PROFILE.db` An anvi’o database that contains key information about the mapping of short reads from multiple samples to your contigs 
 
+make sure the output folders don't have "". if so then please rename!!!
 In the next step you will merge the profiles coming from your different samples into one profile:
 
 ```
