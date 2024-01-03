@@ -10,9 +10,6 @@ module load gcc12-env/12.1.0
 module load miniconda3/4.12.0
 conda activate anvio-8
 
-cd $WORK/Day5
-anvi-interactive -p 5_anvio_profiles/merged_profiles/PROFILE.db -c contigs.db -C METABAT
-
 ``` 
 ## Assembly visualization
 
