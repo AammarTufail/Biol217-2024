@@ -23,7 +23,7 @@ You will start by
 | samtools | 1.19 | [samtools](https://github.com/samtools/samtools ) |
 | QUAST | 5.2.0 | [quast](https://quast.sourceforge.net/quast ) |
 | Bowtie2 | 2.4.5 | [bowtie2](https://bowtie-bio.sourceforge.net/bowtie2/index.shtml ) |
-| Concoct | 1.1.0 | [CONCOCT](https://github.com/BinPro/CONCOCT ) |
+| binsanity | 0.5.3 | [binsanity](https://github.com/edgraham/BinSanity) |
 | MetaBAT2 | 2.12.1 | [Metabat2](https://bitbucket.org/berkeleylab/metabat/src/master/ ) |
 | DASTool | 1.1.5 | [DAS_Tool](https://github.com/cmks/DAS_Tool ) |
 | anvi´o | 8 | [anvi’o](https://anvio.org/ ) |
