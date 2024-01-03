@@ -226,7 +226,7 @@ or in a loop
 ```
 for i in *.bam; do anvi-init-bam $i -o "$i".sorted.bam; done
 ```
-Now you can use [anvi’o](https://anvio.org/ ) to perform genome binning. In this step you will group your contigs and assign them to individual genomes. As with [samtools](https://github.com/samtools/samtools ), [anvi’o](https://anvio.org/ )  uses binners like [Metabat2](https://bitbucket.org/berkeleylab/metabat/src/master/ ), [CONCOCT](https://github.com/BinPro/CONCOCT ) or [Maxbin2](https://sourceforge.net/projects/maxbin2/) in the background. 
+Now you can use [anvi’o](https://anvio.org/ ) to perform genome binning. In this step you will group your contigs and assign them to individual genomes. As with [samtools](https://github.com/samtools/samtools ), [anvi’o](https://anvio.org/ )  uses binners like [Metabat2](https://bitbucket.org/berkeleylab/metabat/src/master/ ), [binsanity](https://github.com/edgraham/BinSanity) or other binners in the background. 
 
 A few preparation steps are required before you perform the actual binning. 
 
@@ -280,7 +280,7 @@ When you run``anvi-merge``:
 Now we can perform genome **binning**. 
 *"Basically, in metagenomic binning, you’re trying to group together a bunch of contigs that all belong to the same genome using various metrics like tetranucleotide frequency, differential coverage, completion, etc “ (https://anvio.org/help/7/artifacts/bin/).*
 
-Here you are going to use [Metabat2](https://bitbucket.org/berkeleylab/metabat/src/master/ ) and [CONCOCT](https://github.com/BinPro/CONCOCT ), two binners then use [DAS_Tool](https://github.com/cmks/DAS_Tool ) to choose the best bins.
+Here you are going to use [Metabat2](https://bitbucket.org/berkeleylab/metabat/src/master/ ) and [binsanity](https://github.com/edgraham/BinSanity), two binners then use [DAS_Tool](https://github.com/cmks/DAS_Tool ) to choose the best bins.
 
 
 
@@ -298,23 +298,23 @@ anvi-summarize -p /PATH/TO/merged_profiles/PROFILE.db -c /PATH/TO/contigs.db -o 
 > `--driver` here you can name the driver you want to use\
 > `--just-do-it` you need to specify this flag as `anvi-cluster-contigs` is an experimental workflow of the anvi´o program and therefore still under development. This way the developers want to make sure you are aware of it. 
 
-#### Binning with CONCOCT
+#### Binning with binsanity
 ```
-anvi-cluster-contigs -p /PATH/TO/merged_profiles/PROFILE.db -c /PATH/TO/contigs.db -C CONCOCT --driver concoct --just-do-it
+anvi-cluster-contigs -p /PATH/TO/merged_profiles/PROFILE.db -c /PATH/TO/contigs.db -C BINSANITY --driver binsanity --just-do-it --log-file log-binsanity
 
-anvi-summarize -p /PATH/TO/merged_profiles/PROFILE.db -c /PATH/TO/contigs.db -o SUMMARY_CONCOCT -C CONCOCT
+anvi-summarize -p /PATH/TO/merged_profiles/PROFILE.db -c /PATH/TO/contigs.db -o SUMMARY_BINSANITY -C BINSANITY
 ```
 
 #### Consolidating bins with DASTool
 ```
-anvi-cluster-contigs -p /PATH/TO/merged_profiles/PROFILE.db -c /PATH/TO/contigs.db -C consolidated_bins --driver dastool -T 20 --search-engine diamond -S METABAT,CONCOCT --log-file log_consolidation_of_bins --just-do-it
+anvi-cluster-contigs -p /PATH/TO/merged_profiles/PROFILE.db -c /PATH/TO/contigs.db -C consolidated_bins --driver dastool -T 12 --search-engine diamond -S METABAT,BINSANITY --log-file log_consolidation_of_bins --just-do-it
 
 anvi-summarize -p /PATH/TO/merged_profiles/PROFILE.db -c /PATH/TO/contigs.db -o /PATH/TO/SUMMARY_consolidated_bins -C consolidated_bins
 ```
 
 ### Questions
 * Number of ${\color{red}ARCHAEA}$ bins you got from MetaBAT2? 
-* Number of ${\color{red}ARCHAEA}$ bins you got from CONCOCT? 
+* Number of ${\color{red}ARCHAEA}$ bins you got from binsanity? 
 * Number of ${\color{red}ARCHAEA}$ bins you got after consolidating the bins?
 
 > INSERT\
