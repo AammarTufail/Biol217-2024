@@ -88,7 +88,7 @@ Now use [bowtie2](https://bowtie-bio.sourceforge.net/bowtie2/index.shtml ) for t
 
 ```
 module load bowtie2
-bowtie2 --very-fast -x out_index -1 R1 -2 R2 -S output_file.sam
+bowtie2 --very-fast -x out_index -1 /PATH/TO/R1 -2 /PATH/TO/R2 -S output_file.sam
 ```
 with the absolute paths to your read files
 
