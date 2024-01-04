@@ -4,7 +4,7 @@ $${\color{red}DAY 4}$$
 
 ## Your data
 ``` 
-cd /work_beegfs/sunam###/Day#
+cd /work_beegfs/sunam###/Metagenomics
 ``` 
 
 
