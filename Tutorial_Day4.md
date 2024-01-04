@@ -4,7 +4,7 @@ $${\color{red}DAY 4}$$
 
 ## Your data
 ``` 
-cd /work_beegfs/sunam###/Day5
+cd /work_beegfs/sunam###/Day#
 ``` 
 
 
@@ -24,13 +24,13 @@ $\color{#58A6FF}\textsf{\Large\&#x24D8;\kern{0.2cm}\normalsize Note}$
 Do not forget to activate the conda environment
 
 ``` 
-conda activate /home/sunam225/miniconda3/miniconda4.9.2/usr/etc/profile.d/conda.sh/envs/anvio-7.1
+conda activate anvio-8
 ``` 
 
-First you can use the following command to get a list of your collections:
+First, you can use the following command to get a list of your collections:
 
 ``` 
-anvi-summarize -p /PATH/TO/merged_profiles/profile.db -c /PATH/TO/contigs.db --list-collections
+anvi-summarize -p /PATH/TO/merged_profiles/PROFILE.db -c /PATH/TO/contigs.db --list-collections
 ``` 
 
 Then use anvi-summarize as displayed below.
@@ -63,7 +63,7 @@ Chimeric genomes are genomes wrongly assembled out of two or more genomes coming
 to use [GUNC](https://grp-bork.embl-community.io/gunc/ ) , activate the following environment: 
 
 ``` 
-conda activate /home/sunam226/.conda/envs/gunc
+conda activate gunc
 ``` 
 Use the following loop to process all your files in one run: 
 
@@ -101,7 +101,7 @@ You can save your work as refinement overwrites the bins.
 conda activate /home/sunam225/miniconda3/miniconda4.9.2/usr/etc/profile.d/conda.sh/envs/anvio-7.1
 ``` 
 
-Use anvi refine to manually work on your bins. *“In the interactive interface, any bins that you create will overwrite the bin that you originally opened. If you don’t provide any names, the new bins’ titles will be prefixed with the name of the original bin, so that bin will continue to live on in spirit.
+Use anvi refine to work on your bins manually. *“In the interactive interface, any bins that you create will overwrite the bin that you originally opened. If you don’t provide any names, the new bins’ titles will be prefixed with the name of the original bin, so that the bin will continue to live on in spirit.
 Essentially, it is like running anvi-interactive, but disposing of the original bin when you’re done.” https://anvio.org/help/main/artifacts/interactive/*
 
 ``` 
@@ -111,7 +111,7 @@ anvi-refine -c /PATH/TO/contigs.db -C consolidated_bins -p /PATH/TO/merged_profi
 ```diff
 -!!!!!!!!!!!!!!!!!!!!!AS MENTIONED BEFORE!!!!!!!!!!!!!!!!!!!!!
 - Here you need to access anvi’o interactive -
-- everytime you need anvi’o interactive -
+- every time you need anvi’o interactive -
 - you need to do those same steps -
 - REPLACE the command line you want to run in interactive mode -
 ```
@@ -157,7 +157,7 @@ The interface allows you to categorize contigs into separate bins (selection too
 You can also evaluate taxonomy and duplicate single copy core genes.
 
 
-You can as well remove contigs. 
+You can also remove contigs. 
 
 Spend some time to experiment in the browser.
 
