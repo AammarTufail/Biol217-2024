@@ -4,14 +4,14 @@ $${\color{red}DAY 5}$$
 
 ## Your data
 ``` 
-cd /work_beegfs/sunam###/Day5
+cd /work_beegfs/sunam###/Day#
 ``` 
 
 $\color{#58A6FF}\textsf{\Large\&#x24D8;\kern{0.2cm}\normalsize Note}$
 Do not forget to activate the conda environment
 
 ``` 
-conda activate /home/sunam225/miniconda3/miniconda4.9.2/usr/etc/profile.d/conda.sh/envs/anvio-7.1
+conda activate anvio-8
 ``` 
 
 
