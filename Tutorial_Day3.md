@@ -280,7 +280,7 @@ When you run``anvi-merge``:
 Now we can perform genome **binning**. 
 *"Basically, in metagenomic binning, you’re trying to group together a bunch of contigs that all belong to the same genome using various metrics like tetranucleotide frequency, differential coverage, completion, etc “ (https://anvio.org/help/7/artifacts/bin/).*
 
-Here you are going to use [Metabat2](https://bitbucket.org/berkeleylab/metabat/src/master/ ) and [binsanity](https://github.com/edgraham/BinSanity), two binners then use [DAS_Tool](https://github.com/cmks/DAS_Tool ) to choose the best bins.
+Here you are going to use two binners [Metabat2](https://bitbucket.org/berkeleylab/metabat/src/master/ ) and [MaxBin2](https://sourceforge.net/projects/maxbin2/).
 
 
 
@@ -298,30 +298,24 @@ anvi-summarize -p /PATH/TO/merged_profiles/PROFILE.db -c /PATH/TO/contigs.db -o 
 > `--driver` here you can name the driver you want to use\
 > `--just-do-it` you need to specify this flag as `anvi-cluster-contigs` is an experimental workflow of the anvi´o program and therefore still under development. This way the developers want to make sure you are aware of it. 
 
-#### Binning with binsanity
-```
-anvi-cluster-contigs -p /PATH/TO/merged_profiles/PROFILE.db -c /PATH/TO/contigs.db -C BINSANITY --driver binsanity --just-do-it --log-file log-binsanity
-
-anvi-summarize -p /PATH/TO/merged_profiles/PROFILE.db -c /PATH/TO/contigs.db -o SUMMARY_BINSANITY -C BINSANITY
+#### Binning with MaxBin2
 ```
 
-#### Consolidating bins with DASTool
-```
-anvi-cluster-contigs -p /PATH/TO/merged_profiles/PROFILE.db -c /PATH/TO/contigs.db -C consolidated_bins --driver dastool -T 12 --search-engine diamond -S METABAT,BINSANITY --log-file log_consolidation_of_bins --just-do-it
+anvi-cluster-contigs -p /PATH/TO/merged_profiles/PROFILE.db -c /PATH/TO/contigs.db b -C MAXBIN2 --driver maxbin2 --just-do-it
+anvi-summarize -p /PATH/TO/merged_profiles/PROFILE.db -c /PATH/TO/contigs.db -o MAXBIN2 -C MAXBIN2
 
-anvi-summarize -p /PATH/TO/merged_profiles/PROFILE.db -c /PATH/TO/contigs.db -o /PATH/TO/SUMMARY_consolidated_bins -C consolidated_bins
 ```
 
 ### Questions
 * Number of ${\color{red}ARCHAEA}$ bins you got from MetaBAT2? 
-* Number of ${\color{red}ARCHAEA}$ bins you got from binsanity? 
-* Number of ${\color{red}ARCHAEA}$ bins you got after consolidating the bins?
+* Number of ${\color{red}ARCHAEA}$ bins you got from Maxbin2? 
 
 > INSERT\
 > YOUR\
 > ANSWER\
 > HERE
 
+- we will use the BINs generated from METABAT2
 
 ## MAGs Quality Estimation
 
@@ -329,7 +323,7 @@ Estimate your genomes completeness and contamination levels.\
 You can assess the quality of your bins by using 
 - otherwise data is already available in the html file generated from binning
 ```
-anvi-estimate-genome-completeness -c /PATH/TO/contigs.db -p /PATH/TO/merged_profiles/PROFILE.db -C consolidated_bins
+anvi-estimate-genome-completeness -c /PATH/TO/contigs.db -p /PATH/TO/merged_profiles/PROFILE.db -C METABAT2
 ```
 In the **next part** you will visualize and evaluate your results.\
 If you want to check what collections you generated you can use:
