@@ -5,8 +5,7 @@ $${\color{red}DAY 4}$$
 ## Your data
 ``` 
 cd /work_beegfs/sunam###/Metagenomics
-``` 
-
+```
 
 
 ## Bin refinement
@@ -27,17 +26,26 @@ Do not forget to activate the conda environment
 conda activate anvio-8
 ``` 
 
-First, you can use the following command to get a list of your collections:
+First, you can use the following command to get a list of your collections; then use anvi-summarize:
 
-``` 
+```ssh
+anvi-summarize -p ? -c ? --list-collections
+anvi-summarize -c ? -p ? -C ? -o ? --just-do-it
+```
+
+<details><summary><b>Finished commands</b></summary>
+
+```ssh
 anvi-summarize -p /PATH/TO/merged_profiles/PROFILE.db -c /PATH/TO/contigs.db --list-collections
-``` 
+```
 
 Then use anvi-summarize as displayed below.
 
-``` 
-anvi-summarize -c /PATH/TO/contigs.db -p /PATH/TO/merged_profiles/profile.db -C consolidated_bins -o SUMMARY --just-do-it
-``` 
+```ssh
+anvi-summarize -c /PATH/TO/contigs.db -p /PATH/TO/merged_profiles/profile.db -C METABAT2 -o SUMMARY_METABAT2 --just-do-it
+```
+</details>
+
 $\color{#58A6FF}\textsf{\Large\&#x24D8;\kern{0.2cm}\normalsize Note}$
 Explore the err output from your slurm submission, which has basic taxonomy information.
 
@@ -67,13 +75,24 @@ conda activate gunc
 ``` 
 Use the following loop to process all your files in one run: 
 
-``` 
+```ssh
+cd /PATH/TO/ARCHAEA_BIN_REFINEMENT
+
+mkdir GUNC
+
+for i in *.fa; do gunc run -i ? -r /home/sunam226/Databases/gunc_db_progenomes2.1.dmnd --out_dir ? --threads 10 --detailed_output; done
+```
+
+<details><summary><b>Finished commands</b></summary>
+
+```ssh
 cd /PATH/TO/ARCHAEA_BIN_REFINEMENT
 
 mkdir GUNC
 
 for i in *.fa; do gunc run -i "$i" -r /home/sunam226/Databases/gunc_db_progenomes2.1.dmnd --out_dir GUNC --threads 10 --detailed_output; done
-``` 
+```
+</details>
 
 > `-i` name of the input file
 > `-r` name of the gunc database (downloaded in advance)
