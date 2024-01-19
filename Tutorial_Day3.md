@@ -127,7 +127,7 @@ done
 ```
 </details>
 
-> `--very-fast` bowtie runs in very fast but less accurate end to end mode\
+> `--very-fast` bowtie runs in very fast but less accurate end-to-end mode\
 > `-x` index files with the contigs from the step before, give it the prefix name of the files (the part that comes before the dot)
  
 > `-1` R1 fasta file containing the raw reads after fastp processing\
