@@ -70,6 +70,7 @@ anvi-summarize -p /PATH/TO/merged_profiles/PROFILE.db -c /PATH/TO/contigs.db --m
 Genome dereplication will be done using anvio. ``anvi-dereplicate-genome`` *“uses the user’s similarity metric of choice to identify genomes that are highly similar to each other, and groups them together into redundant clusters. The program finds representative sequences for each cluster and outputs them into fasta files.”*
 (https://anvio.org/help/7/programs/anvi-dereplicate-genomes/)
 
+
 It will use fastANI by Jain et al. (DOI: 10.1038/s41467-018-07641-9) to perform the dereplication. 
 This program calculates Average Nucleotide Identity. The fast version (fastANI) is faster than the base version (piANI), at the expense of accuracy. 
 
