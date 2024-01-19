@@ -187,15 +187,24 @@ The first command allows you to loop over all files ending with **.gz** (can be 
 $\color{#58A6FF}\textsf{\Large\&#x24D8;\kern{0.2cm}\normalsize Note}$
 DO NOT FORGET TO SUBMIT YOUR COMMAND IN A BATCH SCRIPT!
 
+```ssh
+fastqc ? -o ?
+
 ```
+
+<details><summary><b>Finished commands</b></summary>
+
+```ssh
 fastqc file.gz -o output_folder/ 
-``` 
+```
 
-or in a loop
+or in a loop:
 
-``` 
+```ssh
 for i in *.gz; do fastqc $i -o output_folder/; done
-```   
+```
+</details>
+
   
 > `file.gz` name of the input file\
 > `-o` output folder
