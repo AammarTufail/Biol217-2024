@@ -38,15 +38,12 @@ You can now label the nodes by adding parameters like Depth or Name. Whenever yo
 > YOUR\
 > ANSWER\
 > HERE
-> 
+
 
 ## Quality Assessment of Assemblies
 
 [quast](https://quast.sourceforge.net/quast ) is a **QU**ality **AS**sessment **T**ool to evaluate genome assembly. You will use it to evaluate the results coming from [megahit](https://github.com/voutcn/megahit ).\
 First you need to run quast. Using the terminal go to the quast folder, then use the following command:
-```
-metaquast -t 6 -o /PATH/TO/3_metaquast -m 1000 final.contigs.fa
-```
 
 ```ssh
 metaquast -t 6 -o ? -m 1000 ?
@@ -104,7 +101,6 @@ bowtie2-build contigs.anvio.fa contigs.anvio.fa.index
 Now use [bowtie2](https://bowtie-bio.sourceforge.net/bowtie2/index.shtml ) for the actual mapping. Use the loop command, below you have the single command for better understanding.
 
 ```ssh
-`
 module load bowtie2
 bowtie2 --very-fast -x contigs.anvio.fa.index -1 ? -2 ? -S ?
 ```
@@ -112,7 +108,6 @@ bowtie2 --very-fast -x contigs.anvio.fa.index -1 ? -2 ? -S ?
 <details><summary><b>Finished commands</b></summary>
 
 ```ssh
-`
 module load bowtie2
 bowtie2 --very-fast -x contigs.anvio.fa.index -1 /PATH/TO/sample1_R1_clean.fastq.gz -2 /PATH/TO/sample1_R2_clean.fastq.gz -S SAMPLE.sam
 ```
