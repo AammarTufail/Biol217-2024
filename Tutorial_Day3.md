@@ -454,7 +454,7 @@ http://127.0.0.1:8080
 ``anvi-interactive`` gives you the possibility to manually inspect and work on bins.\
 Once your browser window is open you can set all parameters that you want to set and ``click on draw``, in the bottom left corner. This will generate a graph that, depending on your settings, should look something like this:
 
-![Pipeline](anvi-interactive.jpg)
+![Pipeline]([anvi-interactive.jpg](https://github.com/AammarTufail/Biol217-2024/blob/main/anvi-interactive.jpg))
 
 ### Questions
 * Which binning strategy gives you the best quality for the ${\color{red}ARCHAEA}$ bins?? 
