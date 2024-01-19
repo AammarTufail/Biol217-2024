@@ -189,7 +189,6 @@ DO NOT FORGET TO SUBMIT YOUR COMMAND IN A BATCH SCRIPT!
 
 ```ssh
 fastqc ? -o ?
-
 ```
 
 <details><summary><b>Finished commands</b></summary>
@@ -213,18 +212,28 @@ for i in *.gz; do fastqc $i -o output_folder/; done
 
 For a better understanding, you will find the single command below.
 
+```ssh
+fastp -i ? -I ? -R ? -o ? -O ? -t 6 -q 20
 ```
-fastp -i sample1_R1.fastq.gz -I sample1_R2.fastq.gz -R fastp_report -o sample1_R1_clean.fastq.gz -O sample1_R2_clean.fastq.gz -t 6 -q 20
-``` 
-or in a loop
 
+<details><summary><b>Finished commands</b></summary>
+
+```ssh
+fastp -i sample1_R1.fastq.gz -I sample1_R2.fastq.gz -R fastp_report -o sample1_R1_clean.fastq.gz -O sample1_R2_clean.fastq.gz -t 6 -q 20
 ```
+
+or in a loop:
+
+```ssh
 for i in `ls *_R1.fastq.gz`;
 do
     second=`echo ${i} | sed 's/_R1/_R2/g'`
     fastp -i ${i} -I ${second} -R "${i}"_report -o output_folder/"${i}" -O output_folder/"${second}" -t 6 -q 20
 
 done
+```
+</details>
+
 ```
 > `--html` creates an .html report file in html format\
 >`-i` R1 input file name\
@@ -237,21 +246,25 @@ done
 
 ## Assembly
 
-The first step is to use your [fastp](https://github.com/OpenGene/fastp) processed data and perform genome assemblies using [megahit](https://github.com/voutcn/megahit ), an ultra-fast and memory-efficient NGS assembler. It is optimized for metagenomes.
+The first step is to use your [fastp](https://github.com/OpenGene/fastp) processed data and perform genome assemblies using [megahit](https://github.com/voutcn/megahit ), an ultra-fast and memory-efficient NGS assembler. It is optimized for metagenomes coassembly, multiple samples:
 
-                                      
-Use the following command to run [megahit](https://github.com/voutcn/megahit) on each of the paired end read files:
-
-```                                  
-megahit -1 sample1_R1_clean.fastq.gz -2 sample1_R2_clean.fastq.gz --min-contig-len 1000 --presets meta-large -m 0.85 -o /PATH/TO/OUT/ -t 20 
-```
-                                      
-Coassembly, multiple samples:
 ```
 cd /PATH/TO/CLEAN/READS
                                        
 megahit -1 sample1_R1_clean.fastq.gz -1 sample2_R1_clean.fastq.gz -1 sample3_R1_clean.fastq.gz -2 sample1_R2_clean.fastq.gz -2 sample2_R2_clean.fastq.gz -2 sample3_R2_clean.fastq.gz --min-contig-len 1000 --presets meta-large -m 0.85 -o /PATH/TO/3_coassembly/ -t 12                      
 ```
+```ssh
+cd /PATH/TO/CLEAN/READS
+                                       
+megahit -1 ? -1 ? -1 ? -2 ? -2 ? -2 ? --min-contig-len 1000 --presets meta-large -m 0.85 -o ? -t 12        
+```
+
+<details><summary><b>Finished commands</b></summary>
+
+```ssh
+megahit -1 sample1_R1_clean.fastq.gz -1 sample2_R1_clean.fastq.gz -1 sample3_R1_clean.fastq.gz -2 sample1_R2_clean.fastq.gz -2 sample2_R2_clean.fastq.gz -2 sample3_R2_clean.fastq.gz --min-contig-len 1000 --presets meta-large -m 0.85 -o /PATH/TO/3_coassembly/ -t 12   
+```
+</details>
                                        
 > `-1` path to R1 file\
 > `-2` path to R2 file, for paired end readings only\
