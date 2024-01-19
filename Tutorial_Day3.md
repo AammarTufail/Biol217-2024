@@ -55,6 +55,7 @@ metaquast -t 6 -o ? -m 1000 ?
 metaquast -t 6 -o /PATH/TO/3_metaquast -m 1000 final.contigs.fa
 ```
 </details>
+
 > -o path to output directory. Output is given both as a PDF and as a html file.
 
 ### Questions
@@ -138,17 +139,28 @@ All `*.final.contigs.fasta` should have a corresponding mapping file !!!!
 
 The output will be a sequence mapping file (SAM) with the .sam extension and which we convert to binary alignment and map (BAM) file with the .bam extension using [samtools](https://github.com/samtools/samtools ) with the following loop:
 
+```ssh
+module load samtools
+samtools view -bS ? > bam_file.bam
 ```
+
+<details><summary><b>Finished commands</b></summary>
+
+```ssh
+module load samtools
 samtools view -bS sam_file.sam > bam_file.bam
 ```
-or in a loop
 
-```
+Or in a loop:
+
+```ssh
 module load samtools
 
 cd /PATH/TO/MAPPING/OUT
 for i in *.sam; do samtools view -bS $i > "$i".bam; done
 ```
+</details>
+
 > `sam_file.sam` input .sam file 
 > `bam_file.bam` output .bam file
 
