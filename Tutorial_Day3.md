@@ -9,7 +9,6 @@ Do not forget to activate the conda environment
 module load gcc12-env/12.1.0
 module load miniconda3/4.12.0
 conda activate anvio-8
-
 ``` 
 ## Assembly visualization
 
@@ -48,6 +47,17 @@ First you need to run quast. Using the terminal go to the quast folder, then use
 ```
 metaquast -t 6 -o /PATH/TO/3_metaquast -m 1000 final.contigs.fa
 ```
+
+```ssh
+metaquast -t 6 -o ? -m 1000 ?
+```
+
+<details><summary><b>Finished commands</b></summary>
+
+```ssh
+metaquast -t 6 -o /PATH/TO/3_metaquast -m 1000 final.contigs.fa
+```
+
 > -o path to output directory. Output is given both as a PDF and as a html file.
 
 ### Questions
@@ -65,9 +75,16 @@ metaquast -t 6 -o /PATH/TO/3_metaquast -m 1000 final.contigs.fa
 The first thing you will do is format your fasta sequence IDs. Anvi’o (which you will use later) needs this step to work properly.\
 Run this with your contigs and with your clean reads (Hint: fastp output). As the names get changed, you need to run it on your assembly file, otherwise the names of the contigs won't match the names of the initial reads (essential for the mapping step below).
 
+```ssh
+anvi-script-reformat-fasta ? -o ? --min-len 1000 --simplify-names --report-file name_conversion.txt
 ```
+
+<details><summary><b>Finished commands</b></summary>
+
+```ssh
 anvi-script-reformat-fasta final.contigs.fa -o /PATH/TO/YOUR/contigs.anvio.fa --min-len 1000 --simplify-names --report-file name_conversion.txt
 ```
+
 $\color{#58A6FF}\textsf{\Large\&#x24D8;\kern{0.2cm}\normalsize Note}$
 If you use the flag --report-file, it will also create a TAB-delimited file for you to keep track of which defline in the new file corresponds to which defline in the original file
 
@@ -86,19 +103,23 @@ bowtie2-build contigs.anvio.fa contigs.anvio.fa.index
 
 Now use [bowtie2](https://bowtie-bio.sourceforge.net/bowtie2/index.shtml ) for the actual mapping. Use the loop command, below you have the single command for better understanding.
 
-```
+```ssh
+`
 module load bowtie2
-bowtie2 --very-fast -x out_index -1 /PATH/TO/R1 -2 /PATH/TO/R2 -S output_file.sam
+bowtie2 --very-fast -x contigs.anvio.fa.index -1 ? -2 ? -S ?
 ```
-with the absolute paths to your read files
 
-```
+<details><summary><b>Finished commands</b></summary>
+
+```ssh
+`
 module load bowtie2
 bowtie2 --very-fast -x contigs.anvio.fa.index -1 /PATH/TO/sample1_R1_clean.fastq.gz -2 /PATH/TO/sample1_R2_clean.fastq.gz -S SAMPLE.sam
 ```
+
 or in a loop from your fastq clean folder: 
 
-```
+```ssh
 module load bowtie2
 cd /PATH/TO/FASTP
 for i in `ls *_R1.fastq.gz`;
@@ -107,6 +128,7 @@ do
     echo bowtie2 --very-fast -x /PATH/TO/index -1 ${i} -2 ${second} -S /PATH/TO/4_mapping/"$i".sam 
 done
 ```
+
 > `--very-fast` bowtie runs in very fast but less accurate end to end mode\
 > `-x` index files with the contigs from the step before, give it the prefix name of the files (the part that comes before the dot)
  
