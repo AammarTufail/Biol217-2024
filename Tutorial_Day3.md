@@ -54,7 +54,7 @@ metaquast -t 6 -o ? -m 1000 ?
 ```ssh
 metaquast -t 6 -o /PATH/TO/3_metaquast -m 1000 final.contigs.fa
 ```
-
+</details>
 > -o path to output directory. Output is given both as a PDF and as a html file.
 
 ### Questions
@@ -81,6 +81,7 @@ anvi-script-reformat-fasta ? -o ? --min-len 1000 --simplify-names --report-file 
 ```ssh
 anvi-script-reformat-fasta final.contigs.fa -o /PATH/TO/YOUR/contigs.anvio.fa --min-len 1000 --simplify-names --report-file name_conversion.txt
 ```
+</details>
 
 $\color{#58A6FF}\textsf{\Large\&#x24D8;\kern{0.2cm}\normalsize Note}$
 If you use the flag --report-file, it will also create a TAB-delimited file for you to keep track of which defline in the new file corresponds to which defline in the original file
@@ -123,6 +124,7 @@ do
     echo bowtie2 --very-fast -x /PATH/TO/index -1 ${i} -2 ${second} -S /PATH/TO/4_mapping/"$i".sam 
 done
 ```
+</details>
 
 > `--very-fast` bowtie runs in very fast but less accurate end to end mode\
 > `-x` index files with the contigs from the step before, give it the prefix name of the files (the part that comes before the dot)
