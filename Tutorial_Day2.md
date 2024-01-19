@@ -243,6 +243,7 @@ done
 >`-O` output_folder/R2.fastq.gz output file\
 >`-t` trim tail 1, default is 0, here 6 bases are trimmed\
 >`-q` 20 reads with a phred score of <=20 are trimmed
+```
 
 ## Assembly
 
