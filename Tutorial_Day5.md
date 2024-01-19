@@ -21,9 +21,18 @@ You will now add taxonomic annotations to your MAG.
 
 ``anvi-run-scg-taxonomy`` *associates the single-copy core genes in your contigs-db with taxnomy information*. (https://anvio.org/help/main/programs/anvi-run-scg-taxonomy/)
 
-``` 
+
+```ssh
+anvi-run-scg-taxonomy -c ? -T 20 -P 2
+```
+
+<details><summary><b>Finished commands</b></summary>
+
+
+```ssh
 anvi-run-scg-taxonomy -c /PATH/TO/contigs.db -T 20 -P 2
 ```
+</details>
 
 Now you can run ``anvi-estimate-scg-taxonomy``, *‘This program makes quick taxonomy estimates for genomes, metagenomes, or bins stored in your contigs-db using single-copy core genes’* (https://anvio.org/help/main/programs/anvi-estimate-scg-taxonomy/). Use the program in metagenome-mode, as your contigs contain multiple genomes. 
 
@@ -40,9 +49,9 @@ The output will be seen on your terminal, if you want to save it you will need t
 ``` 
 anvi-estimate-scg-taxonomy -c /PATH/TO/contigs.db -p /PATH/TO/profile.db --metagenome-mode --compute-scg-coverages --update-profile-db-with-taxonomy > temp.txt
 ```
-ONE final summary to get comprehensive info about your consolidated bins:
+ONE final summary to get comprehensive info about your METABAT2 bins:
 ``` 
-anvi-summarize -p /PATH/TO/merged_profiles/PROFILE.db -c /PATH/TO/contigs.db --metagenome-mode -o /PATH/TO/SUMMARY_consolidated_bins -C consolidated_bins
+anvi-summarize -p /PATH/TO/merged_profiles/PROFILE.db -c /PATH/TO/contigs.db --metagenome-mode -o /PATH/TO/SUMMARY_METABAT2 -C METABAT2
 ```
 ## Questions
   
@@ -55,7 +64,6 @@ anvi-summarize -p /PATH/TO/merged_profiles/PROFILE.db -c /PATH/TO/contigs.db --m
 > YOUR\
 > ANSWER\
 > HERE
-
 
 ## Genome dereplication {{BONUS}}
 
@@ -74,9 +82,17 @@ Before you run anvios dereplication you have to prepare a tab delimited txt file
 
 Now you can run the actual dereplication step:
 
-``` 
+```ssh
+anvi-dereplicate-genomes -i ? --program fastANI --similarity-threshold ? -o ? --log-file log_ANI -T 10
+```
+
+<details><summary><b>Finished commands</b></summary>
+
+```ssh
 anvi-dereplicate-genomes -i /PATH/TO/file.txt --program fastANI --similarity-threshold 0.95 -o ANI --log-file log_ANI -T 10
 ```
+</details>
+
 
 >`-i` txt file of your contigs\
 >`--program` specify the program anvio will use for dereplication (here fastANI)\
@@ -89,7 +105,7 @@ anvi-dereplicate-genomes -i /PATH/TO/file.txt --program fastANI --similarity-thr
 ## Questions
   
 * **How many species do you have in the dataset?**
-* **Try to dereplicate again at 90% identity then at 80%identity. In you own words, explain the differences between the different %identities.**
+* **Try to dereplicate again at 90% identity then at 80%identity. In your own words, explain the differences between the different %identities.**
  
 > INSERT\
 > YOUR\
