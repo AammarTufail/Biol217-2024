@@ -251,12 +251,10 @@ The first step will be to sort and index your ``.bam`` files.
 Run the loop as shown below:
 
 ```
-anvi-init-bam bam_file.bam -o sorted_bam.bam
-```
-or in a loop
-```
 for i in *.bam; do anvi-init-bam $i -o "$i".sorted.bam; done
 ```
+
+
 Now you can use [anvi’o](https://anvio.org/ ) to perform genome binning. In this step you will group your contigs and assign them to individual genomes. As with [samtools](https://github.com/samtools/samtools ), [anvi’o](https://anvio.org/ )  uses binners like [Metabat2](https://bitbucket.org/berkeleylab/metabat/src/master/ ), [binsanity](https://github.com/edgraham/BinSanity) or other binners in the background. 
 
 A few preparation steps are required before you perform the actual binning. 
@@ -265,14 +263,23 @@ A few preparation steps are required before you perform the actual binning.
 
 An [anvi’o](https://anvio.org/ ) profile stores sample-specific information about contigs. Profiling a BAM file with anvi’o using ``anvi-profile`` creates a single profile that reports properties for each contig in a single sample based on mapping results.
 
+```ssh
+anvi-profile -i ? -c ? --output-dir ?
 ```
+
+<details><summary><b>Finished commands</b></summary>
+
+```ssh
 anvi-profile -i YOUR_SORTED.bam -c contigs.db --output-dir OUTPUT_DIR
 ```
-or in a loop
-```
+
+or in a loop:
+
+```ssh
 mkdir /PATH/TO/profiling/
 for i in `ls *.sorted.bam | cut -d "." -f 1`; do anvi-profile -i "$i".bam.sorted.bam -c contigs.db -o /PATH/TO/profiling/”$i”; done
 ```
+</details>
 
 > `-i` sorted and indexed bam file, used as input\
 > `-c` contig.db file\
@@ -293,12 +300,20 @@ This command line will return a folder where you will find the following files:
 > `RUNNLOG.txt` the anvi´o log of your run\
 > `PROFILE.db` An anvi’o database that contains key information about the mapping of short reads from multiple samples to your contigs 
 
-make sure the output folders don't have "". if so then please rename!!!
-In the next step you will merge the profiles coming from your different samples into one profile:
+make sure the output folders don't have "". if so then please rename it!!!
+In the next step, you will merge the profiles coming from your different samples into one profile:
 
+```ssh
+anvi-merge /PATH/TO/SAMPLE1/? /PATH/TO/SAMPLE2/? /PATH/TO/SAMPLE3/? -o ? -c ? --enforce-hierarchical-clustering
 ```
+
+<details><summary><b>Finished commands</b></summary>
+
+```ssh
 anvi-merge /PATH/TO/SAMPLE1/PROFILE.db /PATH/TO/SAMPLE2/PROFILE.db /PATH/TO/SAMPLE3/PROFILE.db -o /PATH/TO/merged_profiles -c /PATH/TO/contigs.db --enforce-hierarchical-clustering
 ```
+</details>
+
 > `profile1/PROFILE.db` folder where you stored your PROFILE.db file. You can list multiple profiles with this command\
 > `-o` output folder\
 > `-c` contig.db file\
@@ -317,11 +332,22 @@ Here you are going to use two binners [Metabat2](https://bitbucket.org/berkeleyl
 
 #### Binning with Metabat2
 
+```ssh
+anvi-cluster-contigs -p ? -c ? -C METABAT --driver metabat2 --just-do-it --log-file log-metabat2
+
+anvi-summarize -p /PATH/TO/merged_profiles/? -c ? -o SUMMARY_METABAT -C ?
 ```
+
+<details><summary><b>Finished commands</b></summary>
+
+
+```ssh
 anvi-cluster-contigs -p /PATH/TO/merged_profiles/PROFILE.db -c /PATH/TO/contigs.db -C METABAT --driver metabat2 --just-do-it --log-file log-metabat2
 
 anvi-summarize -p /PATH/TO/merged_profiles/PROFILE.db -c /PATH/TO/contigs.db -o SUMMARY_METABAT -C METABAT
 ```
+</details>
+
 
 > `-p` output folder from the last step/PROFILE.db file with the merged profiles\
 > `-c` contig.db folder\
@@ -330,12 +356,19 @@ anvi-summarize -p /PATH/TO/merged_profiles/PROFILE.db -c /PATH/TO/contigs.db -o 
 > `--just-do-it` you need to specify this flag as `anvi-cluster-contigs` is an experimental workflow of the anvi´o program and therefore still under development. This way the developers want to make sure you are aware of it. 
 
 #### Binning with MaxBin2
+```ssh
+anvi-cluster-contigs -p ? -c ? -C MAXBIN2 --driver maxbin2 --just-do-it --log-file log-maxbin2
+
+anvi-summarize -p /PATH/TO/merged_profiles/? -c ? -o SUMMARY_MAXBIN2 -C ?
 ```
 
-anvi-cluster-contigs -p /PATH/TO/merged_profiles/PROFILE.db -c /PATH/TO/contigs.db b -C MAXBIN2 --driver maxbin2 --just-do-it
-anvi-summarize -p /PATH/TO/merged_profiles/PROFILE.db -c /PATH/TO/contigs.db -o MAXBIN2 -C MAXBIN2
+<details><summary><b>Finished commands</b></summary>
+```ssh
+anvi-cluster-contigs -p /PATH/TO/merged_profiles/PROFILE.db -c /PATH/TO/contigs.db -C MAXBIN2 --driver maxbin2 --just-do-it --log-file log-maxbin2
 
+anvi-summarize -p /PATH/TO/merged_profiles/PROFILE.db -c /PATH/TO/contigs.db -o SUMMARY_MAXBIN2 -C MAXBIN2
 ```
+</details>
 
 ### Questions
 * Number of ${\color{red}ARCHAEA}$ bins you got from MetaBAT2? 
@@ -359,9 +392,18 @@ anvi-estimate-genome-completeness -c /PATH/TO/contigs.db -p /PATH/TO/merged_prof
 In the **next part** you will visualize and evaluate your results.\
 If you want to check what collections you generated you can use:
 
+```ssh
+anvi-estimate-genome-completeness -p ? -c ? --list-collections
 ```
- anvi-estimate-genome-completeness -p /PATH/TO/merged_profiles/PROFILE.db -c /PATH/TO/contigs.db --list-collections
+
+<details><summary><b>Finished commands</b></summary>
+
+```ssh
+anvi-estimate-genome-completeness -p /PATH/TO/merged_profiles/PROFILE.db -c /PATH/TO/contigs.db --list-collections
 ```
+
+</details>
+
 You can then use
 
 
