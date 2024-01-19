@@ -248,11 +248,6 @@ done
 
 The first step is to use your [fastp](https://github.com/OpenGene/fastp) processed data and perform genome assemblies using [megahit](https://github.com/voutcn/megahit ), an ultra-fast and memory-efficient NGS assembler. It is optimized for metagenomes coassembly, multiple samples:
 
-```
-cd /PATH/TO/CLEAN/READS
-                                       
-megahit -1 sample1_R1_clean.fastq.gz -1 sample2_R1_clean.fastq.gz -1 sample3_R1_clean.fastq.gz -2 sample1_R2_clean.fastq.gz -2 sample2_R2_clean.fastq.gz -2 sample3_R2_clean.fastq.gz --min-contig-len 1000 --presets meta-large -m 0.85 -o /PATH/TO/3_coassembly/ -t 12                      
-```
 ```ssh
 cd /PATH/TO/CLEAN/READS
                                        
