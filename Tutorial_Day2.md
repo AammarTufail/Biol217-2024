@@ -41,7 +41,7 @@ To run a **batch calculation** it is not only important to instruct the batch sy
 sbatch <jobscript>
 ```
 
-An Example script ${\color{red}“anviscript”}$ is found in folder ${\color{red}“/home/sunam226”}$
+An Example script ${\color{red}“anviscript”}$ will be provided/shown the screen
 
 Note, that every job script starts with the directive **#!/bin/bash** on the first line. The subsequent lines contain the directive **#SBATCH**, followed by a specific resource request or some other job information
 
