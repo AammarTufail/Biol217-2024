@@ -363,11 +363,13 @@ anvi-summarize -p /PATH/TO/merged_profiles/? -c ? -o SUMMARY_MAXBIN2 -C ?
 ```
 
 <details><summary><b>Finished commands</b></summary>
+  
 ```ssh
 anvi-cluster-contigs -p /PATH/TO/merged_profiles/PROFILE.db -c /PATH/TO/contigs.db -C MAXBIN2 --driver maxbin2 --just-do-it --log-file log-maxbin2
 
 anvi-summarize -p /PATH/TO/merged_profiles/PROFILE.db -c /PATH/TO/contigs.db -o SUMMARY_MAXBIN2 -C MAXBIN2
 ```
+
 </details>
 
 ### Questions
