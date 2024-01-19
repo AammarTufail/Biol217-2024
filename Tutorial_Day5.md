@@ -36,23 +36,29 @@ anvi-run-scg-taxonomy -c /PATH/TO/contigs.db -T 20 -P 2
 
 Now you can run ``anvi-estimate-scg-taxonomy``, *‘This program makes quick taxonomy estimates for genomes, metagenomes, or bins stored in your contigs-db using single-copy core genes’* (https://anvio.org/help/main/programs/anvi-estimate-scg-taxonomy/). Use the program in metagenome-mode, as your contigs contain multiple genomes. 
 
-``` 
-anvi-estimate-scg-taxonomy -c /PATH/TO/contigs.db --metagenome-mode
+```ssh
+anvi-estimate-scg-taxonomy -c ? --metagenome-mode ? ? ? ?
 ```
 
+<details><summary><b>Finished commands</b></summary>
+
 To estimate abundance of Ribosomal RNAs within your dataset (coverage) use: 
-``` 
+```ssh
 anvi-estimate-scg-taxonomy -c /PATH/TO/contigs.db -p /PATH/TO/profile.db --metagenome-mode --compute-scg-coverages --update-profile-db-with-taxonomy
 ```
 The output will be seen on your terminal, if you want to save it you will need to run the command as follows: 
 
-``` 
+```ssh
 anvi-estimate-scg-taxonomy -c /PATH/TO/contigs.db -p /PATH/TO/profile.db --metagenome-mode --compute-scg-coverages --update-profile-db-with-taxonomy > temp.txt
 ```
 ONE final summary to get comprehensive info about your METABAT2 bins:
-``` 
+```ssh
 anvi-summarize -p /PATH/TO/merged_profiles/PROFILE.db -c /PATH/TO/contigs.db --metagenome-mode -o /PATH/TO/SUMMARY_METABAT2 -C METABAT2
 ```
+
+</details>
+
+
 ## Questions
   
 * **Did you get a species assignment to the ${\color{red}ARCHAEA}$ bins previously identified?**
