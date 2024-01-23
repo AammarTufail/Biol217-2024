@@ -136,7 +136,7 @@ For all details please refer to the online webpage description from the [RZ cauc
 #SBATCH --job-name=fastqc
 #SBATCH --output=fastqc.out
 #SBATCH --error=fastqc.err
-#SBATCH --partition=all
+#SBATCH --partition=base
 #SBATCH --reservation=biol217
 
 module load gcc12-env/12.1.0
