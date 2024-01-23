@@ -64,6 +64,7 @@ The following table summarizes the most important job parameters.
 | --mem=<size[units]> | Real memory required per node; default unit is megabytes (M); use G for gigabytes | 
 | --time=<time> or -t <time> | Walltime in the format "hours:minutes:seconds" | 
 
+
 ### Special Batch parameters
   
 An important job parameters specific for our course for dedicated resources.
@@ -124,7 +125,26 @@ To terminate a running or to remove a queued job from the batch server use
 scancel <jobid>  
 ``` 
 For all details please refer to the online webpage description from the [RZ caucluster - CAU KIEL online documentation](https://www.rz.uni-kiel.de/en/our-portfolio/hiperf/caucluster?set_language=en)
- 
+
+
+``` 
+#!/bin/bash
+#SBATCH --nodes=1
+#SBATCH --cpus-per-task=4
+#SBATCH --mem=10G
+#SBATCH --time=5:00:00
+#SBATCH --job-name=fastqc
+#SBATCH --output=fastqc.out
+#SBATCH --error=fastqc.err
+#SBATCH --partition=all
+#SBATCH --reservation=biol217
+
+module load gcc12-env/12.1.0
+module load miniconda3/4.12.0
+conda activate anvio-8
+```
+
+
 ## The dataset
   
 The background concerning the dataset and analysis based on 16S amplicon sequence analysis was published by Martin Fischer (https://sfamjournals.onlinelibrary.wiley.com/doi/full/10.1111/1751-7915.13313). Metagenomes from the same samples were sequenced.
