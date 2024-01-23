@@ -242,16 +242,6 @@ fastp -i ? -I ? -R ? -o ? -O ? -t 6 -q 20
 fastp -i sample1_R1.fastq.gz -I sample1_R2.fastq.gz -R fastp_report -o sample1_R1_clean.fastq.gz -O sample1_R2_clean.fastq.gz -t 6 -q 20
 ```
 
-or in a loop:
-
-```ssh
-for i in `ls *_R1.fastq.gz`;
-do
-    second=`echo ${i} | sed 's/_R1/_R2/g'`
-    fastp -i ${i} -I ${second} -R "${i}"_report -o output_folder/"${i}" -O output_folder/"${second}" -t 6 -q 20
-
-done
-```
 </details>
 
 ```
