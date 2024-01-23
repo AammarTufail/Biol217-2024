@@ -257,7 +257,7 @@ done
 ```
 > `--html` creates an .html report file in html format\
 >`-i` R1 input file name\
->`-O` R2 input file name\
+>`-I` R2 input file name\
 >`-R` report title, here ‘_report’ is added to each file\
 >`-o` output_folder/R1.fastq.gz output file\
 >`-O` output_folder/R2.fastq.gz output file\
