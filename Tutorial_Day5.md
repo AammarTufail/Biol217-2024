@@ -11,6 +11,8 @@ $\color{#58A6FF}\textsf{\Large\&#x24D8;\kern{0.2cm}\normalsize Note}$
 Do not forget to activate the conda environment
 
 ``` 
+module load gcc12-env/12.1.0
+module load miniconda3/4.12.0
 conda activate anvio-8
 ``` 
 
