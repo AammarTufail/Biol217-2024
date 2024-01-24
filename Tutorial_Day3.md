@@ -209,7 +209,9 @@ srun --reservation=biol217 --pty --mem=10G --nodes=1 --tasks-per-node=1 --cpus-p
 ```
 
 ```
-conda activate /home/sunam225/miniconda3/miniconda4.9.2/usr/etc/profile.d/conda.sh/envs/anvio-7.1
+module load gcc12-env/12.1.0
+module load miniconda3/4.12.0
+conda activate anvio-8
 
 anvi-display-contigs-stats contigs.db
 ```
@@ -221,7 +223,7 @@ ssh -L 8060:localhost:8080 sunam###@caucluster-old.rz.uni-kiel.de
 ssh -L 8080:localhost:8080 node###
 ```
 ```diff
-- open google chrome and paste  -
+- open google chrome or firefox and paste  -
 ```
 
 ```
@@ -427,7 +429,9 @@ srun --reservation=biol217 --pty --mem=10G --nodes=1 --tasks-per-node=1 --cpus-p
 ```
 
 ```
-conda activate /home/sunam225/miniconda3/miniconda4.9.2/usr/etc/profile.d/conda.sh/envs/anvio-7.1
+module load gcc12-env/12.1.0
+module load miniconda3/4.12.0
+conda activate anvio-8
 
 anvi-interactive -p /PATH/TO/merged_profiles/PROFILE.db -c /PATH/TO/contigs.db -C YOUR_COLLECTION
 ```
