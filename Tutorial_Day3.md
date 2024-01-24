@@ -202,7 +202,7 @@ Once you have your contigs database ready, and optionally your HMMs are run, you
 ```
 srun --reservation=biol217 --pty --mem=10G --nodes=1 --tasks-per-node=1 --cpus-per-task=1 --nodelist=node002 /bin/bash
 ```
-- NODES reserved:  Nodes=node[002-004,010,030-031]
+- NODES reserved:  Nodes=node[100-103,105-106]
 
 ```diff
 - node### -
