@@ -23,6 +23,8 @@ $\color{#58A6FF}\textsf{\Large\&#x24D8;\kern{0.2cm}\normalsize Note}$
 Do not forget to activate the conda environment
 
 ``` 
+module load gcc12-env/12.1.0
+module load miniconda3/4.12.0
 conda activate anvio-8
 ``` 
 
@@ -70,7 +72,9 @@ Chimeric genomes are genomes wrongly assembled out of two or more genomes coming
 
 to use [GUNC](https://grp-bork.embl-community.io/gunc/ ) , activate the following environment: 
 
-``` 
+```
+module load gcc12-env/12.1.0
+module load miniconda3/4.12.0
 conda activate gunc
 ``` 
 Use the following loop to process all your files in one run: 
@@ -117,7 +121,9 @@ $\color{#D29922}\textsf{\Large\&#x26A0;\kern{0.2cm}\normalsize Warning}$
 You can save your work as refinement overwrites the bins. 
 
 ``` 
-conda activate /home/sunam225/miniconda3/miniconda4.9.2/usr/etc/profile.d/conda.sh/envs/anvio-7.1
+module load gcc12-env/12.1.0
+module load miniconda3/4.12.0
+conda activate anvio-8
 ``` 
 
 Use anvi refine to work on your bins manually. *“In the interactive interface, any bins that you create will overwrite the bin that you originally opened. If you don’t provide any names, the new bins’ titles will be prefixed with the name of the original bin, so that the bin will continue to live on in spirit.
@@ -144,7 +150,9 @@ srun --reservation=biol217 --pty --mem=10G --nodes=1 --tasks-per-node=1 --cpus-p
 ```
 
 ```
-conda activate /home/sunam225/miniconda3/miniconda4.9.2/usr/etc/profile.d/conda.sh/envs/anvio-7.1
+module load gcc12-env/12.1.0
+module load miniconda3/4.12.0
+conda activate anvio-8
 
 anvi-refine -c /PATH/TO/contigs.db -C consolidated_bins -p /PATH/TO/merged_profiles/PROFILE.db --bin-id Bin_METABAT__25
 ```
