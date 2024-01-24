@@ -122,7 +122,7 @@ cd /PATH/TO/FASTP
 for i in `ls *_R1.fastq.gz`;
 do
     second=`echo ${i} | sed 's/_R1/_R2/g'`
-    echo bowtie2 --very-fast -x /PATH/TO/index -1 ${i} -2 ${second} -S /PATH/TO/4_mapping/"$i".sam 
+bowtie2 --very-fast -x /PATH/TO/index -1 ${i} -2 ${second} -S /PATH/TO/4_mapping/"$i".sam 
 done
 ```
 </details>
