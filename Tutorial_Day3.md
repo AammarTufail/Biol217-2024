@@ -200,7 +200,7 @@ Once you have your contigs database ready, and optionally your HMMs are run, you
 ```
 
 ```
-srun --reservation=biol217 --pty --mem=10G --nodes=1 --tasks-per-node=1 --cpus-per-task=1 --nodelist=node002 /bin/bash
+srun --reservation=biol217 --pty --mem=10G --nodes=1 --tasks-per-node=1 --cpus-per-task=1 /bin/bash
 ```
 - NODES reserved:  Nodes=node[100-103,105-106]
 
@@ -439,7 +439,7 @@ anvi-interactive -p /PATH/TO/merged_profiles/PROFILE.db -c /PATH/TO/contigs.db -
 - Open New Terminal -
 ```
 ```
-ssh -L 8060:localhost:8080 sunam###@caucluster-old.rz.uni-kiel.de
+ssh -L 8060:localhost:8080 sunam###@caucluster.rz.uni-kiel.de
 ssh -L 8080:localhost:8080 node###
 ```
 ```diff
