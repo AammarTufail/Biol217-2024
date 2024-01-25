@@ -362,7 +362,7 @@ Estimate your genomes completeness and contamination levels.\
 You can assess the quality of your bins by using 
 - otherwise data is already available in the html file generated from binning
 ```
-anvi-estimate-genome-completeness -c /PATH/TO/contigs.db -p /PATH/TO/merged_profiles/PROFILE.db -C METABAT2
+anvi-estimate-genome-completeness -c /PATH/TO/contigs.db -p /PATH/TO/merged_profiles/PROFILE.db -C METABAT
 ```
 In the **next part** you will visualize and evaluate your results.\
 If you want to check what collections you generated you can use:
