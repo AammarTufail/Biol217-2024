@@ -57,7 +57,7 @@ cd /PATH/TO/SUMMARY/bin_by_bin
 
 mkdir ../../ARCHAEA_BIN_REFINEMENT
 
-cp /PATH/TO/BIN/*.fa /PATH/TO/ARCHAEA_BIN_REFINEMENT/
+cp /PATH/TO/bin_by_bin/METABAT_BIN_###/*.fa /PATH/TO/ARCHAEA_BIN_REFINEMENT/
 ``` 
 $\color{#D29922}\textsf{\Large\&#x26A0;\kern{0.2cm}\normalsize Warning}$
 !!!!!!!!!!!!!!!DO THIS FOR ALL ARCHAEA BINS YOU HAVE!!!!!!!!!!!!!!!
