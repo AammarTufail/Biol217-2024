@@ -219,7 +219,7 @@ anvi-display-contigs-stats contigs.db
 - Open New Terminal -
 ```
 ```
-ssh -L 8060:localhost:8080 sunam###@caucluster-old.rz.uni-kiel.de
+ssh -L 8060:localhost:8080 sunam###@caucluster.rz.uni-kiel.de
 ssh -L 8080:localhost:8080 node###
 ```
 ```diff
