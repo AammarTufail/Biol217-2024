@@ -200,7 +200,7 @@ Once you have your contigs database ready, and optionally your HMMs are run, you
 ```
 
 ```
-srun --reservation=biol217 --pty --mem=10G --nodes=1 --tasks-per-node=1 --cpus-per-task=1 /bin/bash
+srun --reservation=biol217 --pty --mem=10G --nodes=1 --tasks-per-node=1 --cpus-per-task=1 --nodelist=node010 /bin/bash
 ```
 - NODES reserved:  Nodes=node[100-103,105-106]
 
