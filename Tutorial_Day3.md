@@ -194,18 +194,7 @@ Once you have your contigs database ready, and optionally your HMMs are run, you
 
 ```diff
 - Here you need to access anvi’o interactive -
-- everytime you need anvi’o interactive -
-- you need to do those same steps -
 - REPLACE the command line you want to run in interactive mode -
-```
-
-```
-srun --reservation=biol217 --pty --mem=10G --nodes=1 --tasks-per-node=1 --cpus-per-task=1 --nodelist=n100 --partition=base /bin/bash
-```
-- NODES reserved:  Nodes=node[100-103,105-106]
-
-```diff
-- node### -
 ```
 
 ```
@@ -214,24 +203,6 @@ module load miniconda3/4.12.0
 conda activate anvio-8
 
 anvi-display-contigs-stats contigs.db
-```
-```diff
-- Open New Terminal -
-```
-```
-ssh -L 8060:localhost:8080 sunam###@caucluster.rz.uni-kiel.de
-ssh -L 8080:localhost:8080 n###
-```
-```diff
-- open google chrome or firefox and paste  -
-```
-
-```
-http://127.0.0.1:8060
-```
-or
-```
-http://127.0.0.1:8080
 ```
 
 This program shows you simple stats of your contigs database that may help you not only assess your assembly output, but also estimate the number of bacterial and archaeal genomes to recover.
