@@ -209,6 +209,8 @@ srun --reservation=biol217 --pty --mem=10G --nodes=1 --tasks-per-node=1 --cpus-p
 ```
 
 ```
+module load gcc12-env/12.1.0
+module load miniconda3/4.12.0
 conda activate anvio-8
 
 anvi-display-contigs-stats contigs.db
