@@ -144,7 +144,7 @@ module load gcc12-env/12.1.0
 module load miniconda3/4.12.0
 conda activate anvio-8
 
-anvi-refine -c /PATH/TO/contigs.db -C consolidated_bins -p /PATH/TO/merged_profiles/PROFILE.db --bin-id Bin_METABAT__25
+anvi-refine -c /PATH/TO/contigs.db -C METABAT -p /PATH/TO/merged_profiles/PROFILE.db --bin-id METABAT__25
 ```
 
 You can now sort your bins by **GC content**, by **coverage** or both. 
