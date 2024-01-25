@@ -218,7 +218,7 @@ anvi-display-contigs-stats contigs.db
 ```
 ```
 ssh -L 8060:localhost:8080 sunam###@caucluster.rz.uni-kiel.de
-ssh -L 8080:localhost:8080 node###
+ssh -L 8080:localhost:8080 n###
 ```
 ```diff
 - open google chrome or firefox and paste  -
