@@ -136,17 +136,7 @@ anvi-refine -c /PATH/TO/contigs.db -C consolidated_bins -p /PATH/TO/merged_profi
 ```diff
 -!!!!!!!!!!!!!!!!!!!!!AS MENTIONED BEFORE!!!!!!!!!!!!!!!!!!!!!
 - Here you need to access anvi’o interactive -
-- every time you need anvi’o interactive -
-- you need to do those same steps -
 - REPLACE the command line you want to run in interactive mode -
-```
-```
-srun --reservation=biol217 --pty --mem=10G --nodes=1 --tasks-per-node=1 --cpus-per-task=1 /bin/bash
-```
-- NODES reserved:  Nodes=node[002-004,010,030-031]
-
-```diff
-- node### -
 ```
 
 ```
@@ -155,24 +145,6 @@ module load miniconda3/4.12.0
 conda activate anvio-8
 
 anvi-refine -c /PATH/TO/contigs.db -C consolidated_bins -p /PATH/TO/merged_profiles/PROFILE.db --bin-id Bin_METABAT__25
-```
-```diff
-- Open New Terminal -
-```
-```
-ssh -L 8060:localhost:8080 sunam###@caucluster-old.rz.uni-kiel.de
-ssh -L 8080:localhost:8080 node###
-```
-```diff
-- open google chrome and paste  -
-```
-
-```
-http://127.0.0.1:8060
-```
-or
-```
-http://127.0.0.1:8080
 ```
 
 You can now sort your bins by **GC content**, by **coverage** or both. 
