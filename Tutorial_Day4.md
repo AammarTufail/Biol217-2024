@@ -197,6 +197,9 @@ You should manually visualize your **ARCHAEA BINS** coverage.
   
 * **how abundant are the archaea bins in the 3 samples? (relative abundance)**
 * **you can also use anvi-inspect -p -c, anvi-script-get-coverage-from-bam or, anvi-profile-blitz. Please look up the help page for each of those commands and construct the appropriate command line
+
+* https://anvio.org/help/main/artifacts/summary/
+* 
  
 > INSERT\
 > YOUR\
