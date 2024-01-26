@@ -79,6 +79,7 @@ conda activate gunc
 ``` 
 Use the following loop to process all your files in one run: 
 
+
 ```ssh
 cd /PATH/TO/ARCHAEA_BIN_REFINEMENT
 
@@ -99,6 +100,14 @@ mkdir GUNC
 for i in *.fa; do gunc run -i "$i" -r /work_beegfs/sunam###/Databases/gunc_db_progenomes2.1.dmnd --out_dir GUNC --threads 10 --detailed_output; done
 ```
 </details>
+
+in case of errors please run 
+
+```
+conda install bioconda::prodigal
+conda install bioconda::diamond==2.0.4.
+```
+
 
 > `-i` name of the input file
 > `-r` name of the gunc database (downloaded in advance)
