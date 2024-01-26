@@ -85,6 +85,8 @@ cd /PATH/TO/ARCHAEA_BIN_REFINEMENT
 mkdir GUNC
 
 for i in *.fa; do gunc run -i ? -r /work_beegfs/sunam###/Databases/gunc_db_progenomes2.1.dmnd --out_dir ? --threads 10 --detailed_output; done
+
+gunc plot -d /PATH/TO/YOUR/diamond_output/METABAT__#-contigs.diamond.progenomes_2.1.out -g /PATH/TO/YOUR/genes_calls/gene_counts.json
 ```
 
 <details><summary><b>Finished commands</b></summary>
