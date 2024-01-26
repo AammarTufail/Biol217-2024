@@ -49,7 +49,8 @@ anvi-summarize -c /PATH/TO/contigs.db -p /PATH/TO/merged_profiles/profile.db -C 
 </details>
 
 $\color{#58A6FF}\textsf{\Large\&#x24D8;\kern{0.2cm}\normalsize Note}$
-Explore the err output from your slurm submission, which has basic taxonomy information.
+Explore the err output from your summary table
+
 
 As each bin is stored in its own folder, use 
 ``` 
