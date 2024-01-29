@@ -48,13 +48,16 @@ micromamba activate 08_panaroo
 mkdir -p $WORK/pangenomics/01_panaroo
 # run panaroo
 panaroo -i $WORK/pangenomics/gffs/*.gff -o $WORK/pangenomics/01_panaroo/pangenomics_results --clean-mode strict -t 12
-
-
 micromamba deactivate
 module purge
 jobinfo
-
 ```
+## Make plots
+
+
+
+
+
 
 # Questions
 

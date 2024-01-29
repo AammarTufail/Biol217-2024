@@ -82,8 +82,8 @@ echo "---------Assembly Quality Check Started---------"
 micromamba activate 04_checkm_quast
 cd $WORK/genomics/3_hybrid_assembly
 mkdir -p $WORK/genomics/3_hybrid_assembly/quast
-quast.py $WORK/genomics/3_hybrid_assembly/assembly.fasta --circos -L --conserved-genes-finding --rna-finding \
- --glimmer --use-all-alignments --report-all-metrics -o $WORK/genomics/3_hybrid_assembly/quast -t 32
+quast.py $WORK/genomics/3_hybrid_assembly/assembly.fasta --circos -L --conserved-genes-finding --rna-finding --glimmer --use-all-alignments --report-all-metrics -o $WORK/genomics/3_hybrid_assembly/quast -t 32
+
 micromamba deactivate
 
 ## 4.2 CheckM
@@ -101,7 +101,8 @@ micromamba deactivate
 micromamba activate 05_checkm2
 cd $WORK/genomics/3_hybrid_assembly
 mkdir -p $WORK/genomics/3_hybrid_assembly/checkm2
-checkm2 predict --threads 32 --input $WORK/genomics/3_hybrid_assembly/* --output-directory $WORK/genomics/3_hybrid_assembly/checkm2 
+checkm2 predict --threads 32 --input $WORK/genomics/3_hybrid_assembly/assembly.fasta --output-directory $WORK/genomics/3_hybrid_assembly/checkm2
+
 micromamba deactivate
 echo "---------Assembly Quality Check Completed Successfully---------"
 

@@ -7,21 +7,17 @@ cat >> unicycler.sh
 
 ## Copy pangenomics to all
 
-rsync -aXvP ./pangenomics sunam227@caucluster.rz.uni-kiel.de:/work_beegfs/sunam227/
-rsync -aXvP ./pangenomics sunam228@caucluster.rz.uni-kiel.de:/work_beegfs/sunam228/
-rsync -aXvP ./pangenomics sunam229@caucluster.rz.uni-kiel.de:/work_beegfs/sunam229/
-rsync -aXvP ./pangenomics sunam230@caucluster.rz.uni-kiel.de:/work_beegfs/sunam230/
-rsync -aXvP ./pangenomics sunam231@caucluster.rz.uni-kiel.de:/work_beegfs/sunam231/
-rsync -aXvP ./pangenomics sunam232@caucluster.rz.uni-kiel.de:/work_beegfs/sunam232/
-rsync -aXvP ./pangenomics sunam233@caucluster.rz.uni-kiel.de:/work_beegfs/sunam233/
-rsync -aXvP ./pangenomics sunam234@caucluster.rz.uni-kiel.de:/work_beegfs/sunam234/
-rsync -aXvP ./pangenomics sunam235@caucluster.rz.uni-kiel.de:/work_beegfs/sunam235/
-rsync -aXvP ./pangenomics sunam236@caucluster.rz.uni-kiel.de:/work_beegfs/sunam236/
-rsync -aXvP ./pangenomics sunam237@caucluster.rz.uni-kiel.de:/work_beegfs/sunam237/
-rsync -aXvP ./pangenomics sunam238@caucluster.rz.uni-kiel.de:/work_beegfs/sunam238/
-biol217_2024!!
-## To access folder drives
-caucluster.rz.uni-kiel.de
-work_beegfs/sunam227/
-sunam
-biol217_2024!!
+rsync -aXvP ./bacteria sunam227@caucluster.rz.uni-kiel.de:/zfshome/sunam227/.micromamba/envs/04_checkm_quast/lib/python3.9/site-packages/quast_libs/busco/
+rsync -aXvP ./bacteria sunam228@caucluster.rz.uni-kiel.de:/zfshome/sunam228/.micromamba/envs/04_checkm_quast/lib/python3.9/site-packages/quast_libs/busco/
+rsync -aXvP ./bacteria sunam229@caucluster.rz.uni-kiel.de:/zfshome/sunam229/.micromamba/envs/04_checkm_quast/lib/python3.9/site-packages/quast_libs/busco/
+rsync -aXvP ./bacteria sunam230@caucluster.rz.uni-kiel.de:/zfshome/sunam230/.micromamba/envs/04_checkm_quast/lib/python3.9/site-packages/quast_libs/busco/
+rsync -aXvP ./bacteria sunam231@caucluster.rz.uni-kiel.de:/zfshome/sunam231/.micromamba/envs/04_checkm_quast/lib/python3.9/site-packages/quast_libs/busco/
+rsync -aXvP ./bacteria sunam232@caucluster.rz.uni-kiel.de:/zfshome/sunam232/.micromamba/envs/04_checkm_quast/lib/python3.9/site-packages/quast_libs/busco/
+rsync -aXvP ./bacteria sunam233@caucluster.rz.uni-kiel.de:/zfshome/sunam233/.micromamba/envs/04_checkm_quast/lib/python3.9/site-packages/quast_libs/busco/
+rsync -aXvP ./bacteria sunam234@caucluster.rz.uni-kiel.de:/zfshome/sunam234/.micromamba/envs/04_checkm_quast/lib/python3.9/site-packages/quast_libs/busco/
+rsync -aXvP ./bacteria sunam235@caucluster.rz.uni-kiel.de:/zfshome/sunam235/.micromamba/envs/04_checkm_quast/lib/python3.9/site-packages/quast_libs/busco/
+rsync -aXvP ./bacteria sunam236@caucluster.rz.uni-kiel.de:/zfshome/sunam236/.micromamba/envs/04_checkm_quast/lib/python3.9/site-packages/quast_libs/busco/
+rsync -aXvP ./bacteria sunam237@caucluster.rz.uni-kiel.de:/zfshome/sunam237/.micromamba/envs/04_checkm_quast/lib/python3.9/site-packages/quast_libs/busco/
+rsync -aXvP ./bacteria sunam238@caucluster.rz.uni-kiel.de:/zfshome/sunam238/.micromamba/envs/04_checkm_quast/lib/python3.9/site-packages/quast_libs/busco/
+rsync -aXvP ./bacteria sunam226@caucluster.rz.uni-kiel.de:/zfshome/sunam226/.micromamba/envs/04_checkm_quast/lib/python3.9/site-packages/quast_libs/busco/
+
