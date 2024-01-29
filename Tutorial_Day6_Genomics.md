@@ -118,7 +118,7 @@ jobinfo
 > Add `fastp` command and rerun the job script by commenting/disabling the fastqc command, as shown on [Day-2](./Tutorial_Day2.md).
 
 <details style="background-color: black;">
-<summary style="font-size: 28px;"><b>Finished commands</b></summary>
+<summary style="font-size: 28px; color: DarkGreen;"><b>Finished commands</b></summary>
 
 ```bash
 #!/bin/bash
@@ -161,7 +161,7 @@ jobinfo
 ```
 
 <details style="background-color: black;">
-<summary style="font-size: 28px;"><b>Finished commands</b></summary>
+<summary style="font-size: 28px; color: DarkGreen;"><b>Finished commands</b></summary>
 
 ```bash
 #!/bin/bash
@@ -238,7 +238,7 @@ NanoPlot --fastq $input_dir/file1_cleaned_filtlong.fastq.gz -o $output_dir -t 6 
 ```
 
 <details style="background-color: black;">
-<summary style="font-size: 28px;"><b>Finished commands</b></summary>
+<summary style="font-size: 28px; color: DarkGreen;"><b>Finished commands</b></summary>
 
 ```bash
 #!/bin/bash
@@ -304,7 +304,7 @@ micromamba activate 03_unicycler
 unicycler -1 $short_read1 -2 $short_read2 -l $long_reads -o $output_dir -t 32
 ```
 <details style="background-color: black;">
-<summary style="font-size: 28px;"><b>Finished commands</b></summary>
+<summary style="font-size: 28px; color: DarkGreen;"><b>Finished commands</b></summary>
 
 ```bash
 # 3 Assembly (1 hour)-----------------------------------------------------------
@@ -331,7 +331,9 @@ micromamba activate 04_checkm_quast
 quast.py assembly.fasta --circos -L --conserved-genes-finding --rna-finding\
      --glimmer --use-all-alignments --report-all-metrics -o $output_dir -t 16
 ```
-<details><summary><b>Finished commands</b></summary>
+
+<details style="background-color: black;">
+<summary style="font-size: 28px; color: DarkGreen;"><b>Finished commands</b></summary>
 
 ```bash
 # 4 Assembly quality-----------------------------------------------------------
@@ -367,7 +369,8 @@ checkm qa ./$checkm_out/lineage.ms ./$checkm_out/ -o 1 > ./$checkm_out/Final_tab
 checkm qa ./c$checkm_out/lineage.ms ./$checkm_out/ -o 2 > ./$checkm_out/final_table_checkm.csv
 ```
 
-<details><summary><b>Finished commands</b></summary>
+<details style="background-color: black;">
+<summary style="font-size: 28px; color: DarkGreen;"><b>Finished commands</b></summary>
 
 ```bash
 ## 4.2 CheckM
@@ -393,7 +396,7 @@ checkm2 predict --threads 12 --input $path_to/*.fasta --output-directory $output
 ```
 
 <details style="background-color: black;">
-<summary style="font-size: 28px;"><b>Finished commands</b></summary>
+<summary style="font-size: 28px; color: DarkGreen;"><b>Finished commands</b></summary>
 
 ```bash
 # 4.3 Checkm2
@@ -427,7 +430,7 @@ prokka $input/assembly.fasta --outdir $output_dir --kingdom Bacteria --addgenes 
 ```
 
 <details style="background-color: black;">
-<summary style="font-size: 28px;"><b>Finished commands</b></summary>
+<summary style="font-size: 28px; color: DarkGreen;"><b>Finished commands</b></summary>
 
 ```bash
 # 5 Annotate-----------------------------------------------------------
@@ -455,7 +458,7 @@ gtdbtk classify_wf --cpus 12 --genome_dir $input_fna_files --out_dir $output_dir
 ```
 
 <details style="background-color: black;">
-<summary style="font-size: 28px;"><b>Finished commands</b></summary>
+<summary style="font-size: 28px; color: DarkGreen;"><b>Finished commands</b></summary>
 
 ```bash
 # 6 Classification-----------------------------------------------------------
@@ -486,7 +489,7 @@ multiqc $input_dir -o $output_dir
 ```
 
 <details style="background-color: black;">
-<summary style="font-size: 28px;"><b>Finished commands</b></summary>
+<summary style="font-size: 28px; color: DarkGreen;"><b>Finished commands</b></summary>
 
 ```bash
 micromamba activate 01_short_reads_qc
