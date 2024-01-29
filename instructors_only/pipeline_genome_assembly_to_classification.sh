@@ -2,7 +2,7 @@
 #SBATCH --nodes=1
 #SBATCH --cpus-per-task=32
 #SBATCH --mem=128G
-#SBATCH --time=15:00:00
+#SBATCH --time=5:00:00
 #SBATCH --job-name=pipeline_genome_assembly
 #SBATCH --output=pipeline_genome_assembly.out
 #SBATCH --error=pipeline_genome_assembly.err
@@ -21,9 +21,8 @@ echo "---------short read cleaning started---------"
 micromamba activate 01_short_reads_qc
 
 ## 1.1 fastqc raw
-cd $WORK/genomics/0_raw_reads/short_reads/
 mkdir -p $WORK/genomics/1_short_reads_qc/1_fastqc_raw
-for i in *.gz; do fastqc $i -o $WORK/genomics/1_short_reads_qc/1_fastqc_raw -t 32; done
+for i in $WORK/genomics/0_raw_reads/short_reads/*.gz; do fastqc $i -o $WORK/genomics/1_short_reads_qc/1_fastqc_raw -t 32; done
 
 ## 1.2 fastp 
 mkdir -p $WORK/genomics/1_short_reads_qc/2_cleaned_reads
@@ -35,9 +34,8 @@ fastp -i $WORK/genomics/0_raw_reads/short_reads/241155E_R1.fastq.gz \
  -O $WORK/genomics/1_short_reads_qc/2_cleaned_reads/241155E_R2_clean.fastq.gz -t 32 -q 25
 
 ## 1.3 fastqc cleaned
-cd $WORK/genomics/1_short_reads_qc/2_cleaned_reads
 mkdir -p $WORK/genomics/1_short_reads_qc/3_fastqc_cleaned
-for i in *.gz; do fastqc $i -o $WORK/genomics/1_short_reads_qc/3_fastqc_cleaned -t 12; done
+for i in $WORK/genomics/1_short_reads_qc/2_cleaned_reads/*.gz; do fastqc $i -o $WORK/genomics/1_short_reads_qc/3_fastqc_cleaned -t 12; done
 micromamba deactivate
 echo "---------short read cleaning completed successfully---------"
 
