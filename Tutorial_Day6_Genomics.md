@@ -503,6 +503,10 @@ multiqc -d $WORK/genomics/ -o $WORK/genomics/6_multiqc
 - **Did we use Single or Paired end reads? Why?**
 - **Write down about the classification of genome we have used here**
 
+> **Resource to take help from:**
+> 1. [Guide to bacterial genome assembly](https://github.com/rrwick/Perfect-bacterial-genome-tutorial/wiki)
+> 2. [Perfect-bacterial-genome-tutorial](https://github.com/rrwick/Perfect-bacterial-genome-tutorial/wiki)
+
 > INSERT\
 > YOUR\
 > ANSWER\
