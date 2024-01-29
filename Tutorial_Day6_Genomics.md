@@ -102,7 +102,7 @@ jobinfo
 
 module load gcc12-env/12.1.0
 module load miniconda3/4.12.0
-module load micromamba3/4.12.0
+module load micromamba/1.4.2
 micromamba activate 01_short_reads_qc
 
 ## 1.1 fastqc raw reads
@@ -134,7 +134,7 @@ jobinfo
 
 module load gcc12-env/12.1.0
 module load miniconda3/4.12.0
-module load micromamba3/4.12.0
+module load micromamba/1.4.2
 micromamba activate 01_short_reads_qc
 
 ## 1.1 fastqc raw reads
@@ -177,7 +177,7 @@ jobinfo
 
 module load gcc12-env/12.1.0
 module load miniconda3/4.12.0
-module load micromamba3/4.12.0
+module load micromamba/1.4.2
 micromamba activate 01_short_reads_qc
 
 ## 1.1 fastqc raw reads
@@ -254,7 +254,7 @@ NanoPlot --fastq $input_dir/file1_cleaned_filtlong.fastq.gz -o $output_dir -t 6 
 
 module load gcc12-env/12.1.0
 module load miniconda3/4.12.0
-module load micromamba3/4.12.0
+module load micromamba/1.4.2
 
 echo "---------long reads cleaning started---------"
 micromamba activate 02_long_reads_qc
