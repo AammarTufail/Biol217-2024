@@ -86,7 +86,7 @@ jobinfo
 ```
 
 <details style="background-color: black;">
-<summary style="font-size: 28px;"><b>Finished commands</b></summary>
+<summary style="font-size: 28px; color: DarkGreen;"><b>Finished commands</b></summary>
 
 ```bash
 #!/bin/bash
