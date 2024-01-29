@@ -27,7 +27,7 @@ $${\color{red}DAY 6}$$
     - [4.4. Bandage](#44-bandage)
   - [5. Annotate the Genomes with `Prokka`](#5-annotate-the-genomes-with-prokka)
   - [6. Classifiy the Genomes with `GTDBTK`](#6-classifiy-the-genomes-with-gtdbtk)
-  - [7. Run MultiQC](#7-run-multiqc)
+  - [7. MultiQC to combine reports](#7-multiqc-to-combine-reports)
   - [Questions](#questions-2)
 
 ## AIMs: 
@@ -57,7 +57,7 @@ micromamba activate 01_short_reads_qc
 
 ### 2.1. Short reads
 
-#### 2.1.1. Run fastqc
+#### 2.1.1. Run [fastqc](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/)
 
 You need to create a job script to run `fastqc` and submit the job.
 
@@ -113,7 +113,7 @@ jobinfo
 </details>
 
 
-#### 2.1.2. Run `fastp` 
+#### 2.1.2. Run [`fastp`](https://github.com/OpenGene/fastp)
 
 > Add `fastp` command and rerun the job script by commenting/disabling the fastqc command, as shown on [Day-2](./Tutorial_Day2.md).
 
@@ -215,7 +215,7 @@ echo "---------short read cleaning completed successfully---------"
 
 ## 2.2. Long reads
 
-### 2.2.1. NanoPlot
+### 2.2.1. [NanoPlot](https://github.com/wdecoster/NanoPlot)
 
 ```bash
 micromamba activate 02_long_reads_qc
@@ -224,7 +224,7 @@ cd $WORK/genomics/0_raw_reads/long_reads/
 NanoPlot --fastq $file -o $output_dir -t 6 --maxlength 40000 --minlength 1000 --plots kde --format png --N50 --dpi 300 --store --raw --tsv_stats --info_in_report
 ```
 
-### 2.2.2. Filtlong
+### 2.2.2. [Filtlong](https://github.com/rrwick/Filtlong)
 
 ```bash
 filtlong --min_length 1000 --keep_percent 90 $file1 | gzip > sample1_cleaned_filtlong.fastq.gz
@@ -297,7 +297,7 @@ jobinfo
 > ANSWER\
 > HERE
 
-## 3. Assemble the genome using Uniycler
+## 3. Assemble the genome using [Uniycler](https://github.com/rrwick/Unicycler)
 
 ```bash
 micromamba activate 03_unicycler
@@ -320,10 +320,8 @@ echo "---------Unicycler Assembly pipeline Completed Successfully---------"
 
 ## 4. Check the assembly quality
 
-### 4.1. Quast
+### 4.1. [Quast](https://github.com/ablab/quast)
 
-- Copy the `.fasta` files of the assembly to the Quast directory
-- Run Quast
 
 ```bash
 micromamba activate 04_checkm_quast
@@ -350,10 +348,8 @@ micromamba deactivate
 </details>
 
 
-### 4.2. CheckM
+### 4.2. [CheckM](https://ecogenomics.github.io/CheckM/)
 
-- Copy the `.fasta` files of the assembly to the CheckM directory
-- Run CheckM
 
 
 ```bash
@@ -385,10 +381,9 @@ micromamba deactivate
 ```
 </details>
 
-### 4.3. CheckM2
+### 4.3. [CheckM2](https://github.com/chklovski/CheckM2)
 
-- Copy the `.fasta` files of the assembly to the CheckM2 directory
-- Run CheckM2
+
 
 ```bash
 micromamba activate 05_checkm2
@@ -417,7 +412,7 @@ echo "---------Assembly Quality Check Completed Successfully---------"
 - Download the linux version and unzip it
 > Open Bandage and load the assembly file `assembly.gfa` from the assembly directory `$WORK/genomics/3_hybrid_assembly/006_final_clean.gfa`
 
-## 5. Annotate the Genomes with `Prokka`
+## 5. Annotate the Genomes with [`Prokka`](https://github.com/tseemann/prokka)
 
 - copy the `.fasta` files of the assembly to the Prokka directory
 - Run Prokka to annotate the genome
@@ -445,7 +440,7 @@ echo "---------Prokka Genome Annotation Completed Successfully---------"
 ```
 </details>
 
-## 6. Classifiy the Genomes with `GTDBTK`
+## 6. Classifiy the Genomes with [`GTDBTK`](https://ecogenomics.github.io/GTDBTk/)
 
 - copy the `.fna` files of the annotated genomes to the GTDBTK directory
 - Run GTDBTK
@@ -477,7 +472,7 @@ echo "---------GTDB Classification Completed Successfully---------"
 ```
 </details>
 
-## 7. Run MultiQC
+## 7. [MultiQC](https://multiqc.info/) to combine reports
 
 - multiqc will create the output directory on its own, so dont create it before running it
 - Run MultiQC to combine all the QC reports at once at the end of the pipeline.
