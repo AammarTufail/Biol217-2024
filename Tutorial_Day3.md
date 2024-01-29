@@ -194,18 +194,7 @@ Once you have your contigs database ready, and optionally your HMMs are run, you
 
 ```diff
 - Here you need to access anvi’o interactive -
-- everytime you need anvi’o interactive -
-- you need to do those same steps -
 - REPLACE the command line you want to run in interactive mode -
-```
-
-```
-srun --reservation=biol217 --pty --mem=10G --nodes=1 --tasks-per-node=1 --cpus-per-task=1 --nodelist=node002 /bin/bash
-```
-- NODES reserved:  Nodes=node[100-103,105-106]
-
-```diff
-- node### -
 ```
 
 ```
@@ -214,24 +203,6 @@ module load miniconda3/4.12.0
 conda activate anvio-8
 
 anvi-display-contigs-stats contigs.db
-```
-```diff
-- Open New Terminal -
-```
-```
-ssh -L 8060:localhost:8080 sunam###@caucluster-old.rz.uni-kiel.de
-ssh -L 8080:localhost:8080 node###
-```
-```diff
-- open google chrome or firefox and paste  -
-```
-
-```
-http://127.0.0.1:8060
-```
-or
-```
-http://127.0.0.1:8080
 ```
 
 This program shows you simple stats of your contigs database that may help you not only assess your assembly output, but also estimate the number of bacterial and archaeal genomes to recover.
@@ -391,7 +362,7 @@ Estimate your genomes completeness and contamination levels.\
 You can assess the quality of your bins by using 
 - otherwise data is already available in the html file generated from binning
 ```
-anvi-estimate-genome-completeness -c /PATH/TO/contigs.db -p /PATH/TO/merged_profiles/PROFILE.db -C METABAT2
+anvi-estimate-genome-completeness -c /PATH/TO/contigs.db -p /PATH/TO/merged_profiles/PROFILE.db -C METABAT
 ```
 In the **next part** you will visualize and evaluate your results.\
 If you want to check what collections you generated you can use:
@@ -414,18 +385,7 @@ You can then use
 ```diff
 -!!!!!!!!!!!!!!!!!!!!!AS MENTIONED BEFORE!!!!!!!!!!!!!!!!!!!!!
 - Here you need to access anvi’o interactive -
-- everytime you need anvi’o interactive -
-- you need to do those same steps -
 - REPLACE the command line you want to run in interactive mode -
-```
-
-```
-srun --reservation=biol217 --pty --mem=10G --nodes=1 --tasks-per-node=1 --cpus-per-task=1 --nodelist=node002 /bin/bash
-```
-- NODES reserved:  Nodes=node[002-004,010,030-031]
-
-```diff
-- node### -
 ```
 
 ```
@@ -434,24 +394,6 @@ module load miniconda3/4.12.0
 conda activate anvio-8
 
 anvi-interactive -p /PATH/TO/merged_profiles/PROFILE.db -c /PATH/TO/contigs.db -C YOUR_COLLECTION
-```
-```diff
-- Open New Terminal -
-```
-```
-ssh -L 8060:localhost:8080 sunam###@caucluster-old.rz.uni-kiel.de
-ssh -L 8080:localhost:8080 node###
-```
-```diff
-- open google chrome and paste  -
-```
-
-```
-http://127.0.0.1:8060
-```
-or
-```
-http://127.0.0.1:8080
 ```
 
 

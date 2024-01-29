@@ -49,7 +49,8 @@ anvi-summarize -c /PATH/TO/contigs.db -p /PATH/TO/merged_profiles/profile.db -C 
 </details>
 
 $\color{#58A6FF}\textsf{\Large\&#x24D8;\kern{0.2cm}\normalsize Note}$
-Explore the err output from your slurm submission, which has basic taxonomy information.
+Explore the err output from your summary table
+
 
 As each bin is stored in its own folder, use 
 ``` 
@@ -57,7 +58,7 @@ cd /PATH/TO/SUMMARY/bin_by_bin
 
 mkdir ../../ARCHAEA_BIN_REFINEMENT
 
-cp /PATH/TO/BIN_FOLDER_INFO_FROM_ERR_FILE/*.fa /PATH/TO/ARCHAEA_BIN_REFINEMENT/
+cp /PATH/TO/bin_by_bin/METABAT_BIN_###/*.fa /PATH/TO/ARCHAEA_BIN_REFINEMENT/
 ``` 
 $\color{#D29922}\textsf{\Large\&#x26A0;\kern{0.2cm}\normalsize Warning}$
 !!!!!!!!!!!!!!!DO THIS FOR ALL ARCHAEA BINS YOU HAVE!!!!!!!!!!!!!!!
@@ -79,12 +80,15 @@ conda activate gunc
 ``` 
 Use the following loop to process all your files in one run: 
 
+
 ```ssh
 cd /PATH/TO/ARCHAEA_BIN_REFINEMENT
 
 mkdir GUNC
 
-for i in *.fa; do gunc run -i ? -r /home/sunam226/Databases/gunc_db_progenomes2.1.dmnd --out_dir ? --threads 10 --detailed_output; done
+for i in *.fa; do gunc run -i ? -r /work_beegfs/sunam###/Databases/gunc_db_progenomes2.1.dmnd --out_dir ? --threads 10 --detailed_output; done
+
+gunc plot -d /PATH/TO/YOUR/diamond_output/METABAT__#-contigs.diamond.progenomes_2.1.out -g /PATH/TO/YOUR/genes_calls/gene_counts.json
 ```
 
 <details><summary><b>Finished commands</b></summary>
@@ -94,9 +98,17 @@ cd /PATH/TO/ARCHAEA_BIN_REFINEMENT
 
 mkdir GUNC
 
-for i in *.fa; do gunc run -i "$i" -r /home/sunam226/Databases/gunc_db_progenomes2.1.dmnd --out_dir GUNC --threads 10 --detailed_output; done
+for i in *.fa; do gunc run -i "$i" -r /work_beegfs/sunam###/Databases/gunc_db_progenomes2.1.dmnd --out_dir GUNC/"$i" --threads 10 --detailed_output; done
 ```
 </details>
+
+in case of errors please run 
+
+```
+conda install bioconda::prodigal
+conda install bioconda::diamond==2.0.4.
+```
+
 
 > `-i` name of the input file
 > `-r` name of the gunc database (downloaded in advance)
@@ -130,23 +142,13 @@ Use anvi refine to work on your bins manually. *“In the interactive interface,
 Essentially, it is like running anvi-interactive, but disposing of the original bin when you’re done.” https://anvio.org/help/main/artifacts/interactive/*
 
 ``` 
-anvi-refine -c /PATH/TO/contigs.db -C consolidated_bins -p /PATH/TO/merged_profiles/PROFILE.db --bin-id Bin_METABAT__25
+anvi-refine -c /PATH/TO/contigs.db -C METABAT -p /PATH/TO/merged_profiles/PROFILE.db --bin-id Bin_METABAT__##
 ``` 
 
 ```diff
 -!!!!!!!!!!!!!!!!!!!!!AS MENTIONED BEFORE!!!!!!!!!!!!!!!!!!!!!
 - Here you need to access anvi’o interactive -
-- every time you need anvi’o interactive -
-- you need to do those same steps -
 - REPLACE the command line you want to run in interactive mode -
-```
-```
-srun --reservation=biol217 --pty --mem=10G --nodes=1 --tasks-per-node=1 --cpus-per-task=1 /bin/bash
-```
-- NODES reserved:  Nodes=node[002-004,010,030-031]
-
-```diff
-- node### -
 ```
 
 ```
@@ -154,25 +156,7 @@ module load gcc12-env/12.1.0
 module load miniconda3/4.12.0
 conda activate anvio-8
 
-anvi-refine -c /PATH/TO/contigs.db -C consolidated_bins -p /PATH/TO/merged_profiles/PROFILE.db --bin-id Bin_METABAT__25
-```
-```diff
-- Open New Terminal -
-```
-```
-ssh -L 8060:localhost:8080 sunam###@caucluster-old.rz.uni-kiel.de
-ssh -L 8080:localhost:8080 node###
-```
-```diff
-- open google chrome and paste  -
-```
-
-```
-http://127.0.0.1:8060
-```
-or
-```
-http://127.0.0.1:8080
+anvi-refine -c /PATH/TO/contigs.db -C METABAT -p /PATH/TO/merged_profiles/PROFILE.db --bin-id METABAT__25
 ```
 
 You can now sort your bins by **GC content**, by **coverage** or both. 
@@ -213,6 +197,9 @@ You should manually visualize your **ARCHAEA BINS** coverage.
   
 * **how abundant are the archaea bins in the 3 samples? (relative abundance)**
 * **you can also use anvi-inspect -p -c, anvi-script-get-coverage-from-bam or, anvi-profile-blitz. Please look up the help page for each of those commands and construct the appropriate command line
+
+* https://anvio.org/help/main/artifacts/summary/
+* 
  
 > INSERT\
 > YOUR\

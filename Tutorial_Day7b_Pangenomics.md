@@ -1,4 +1,27 @@
-# Pangenomics - comparing genomes
+# 
+$${\color{red}DAY 7b}$$
+# 
+
+
+
+
+```bash
+cd $WORK/pangenomics
+mkdir -p 01_input_data
+cd 01_input_data
+# download the data pack
+wget https://ndownloader.figshare.com/files/28715136 -O input_genomes.tar.gz
+# unpack it and remove packed files
+tar -zxvf input_genomes.tar.gz
+rm -r input_genomes.tar.gz
+#rename the dir
+mv AnvioPhylogenomicsTutorialDataPack/ input_genomes/ 
+#let's see what we have
+ls -l input_genomes/
+# remove only Salmonella
+rm -r $WORK/pangenomics/01_input_data/input_genomes/distantly-related/Salmonella_enterica*
+```
+# Pangenomics - comparing genomes with ANVIO
 
 ## Aim
 In this tutorial we will combine both the previously assembled MAGs and reference genomes for a phylogenetic and functional genome comparison.
