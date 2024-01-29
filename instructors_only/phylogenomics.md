@@ -106,10 +106,22 @@ anvi-gen-phylogenomic-tree -f concatenated-proteins.fa \
 ## 7. ANVIO Interactive tree
 
 ```bash
+srun --reservation=biol217 --pty --mem=16G --nodes=1 --tasks-per-node=1 --cpus-per-task=1 --partition=base /bin/bash
+module load gcc12-env/12.1.0
+module load miniconda3/4.12.0
+conda activate anvio-8
+
 anvi-interactive -p phylogenomic-profile.db \
                  -t phylogenomic-tree.txt \
                  --title "Phylogenomics Tutorial Example #1" \
                  --manual
+
+# In a new terminal (update the node "n100" to actually used one)
+ssh -L 8060:localhost:8080 sunam239@caucluster.rz.uni-kiel.de
+ssh -L 8080:localhost:8080 n100
+```
+click: http://127.0.0.1:8060/
+
 ```
 > Close the Anvio Interactive.
 > Download the additional data for each genome:
