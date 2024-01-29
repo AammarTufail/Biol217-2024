@@ -117,7 +117,8 @@ jobinfo
 
 > Add `fastp` command and rerun the job script by commenting/disabling the fastqc command, as shown on [Day-2](./Tutorial_Day2.md).
 
-<details><summary><b>Finished commands</b></summary>
+<details style="background-color: black;">
+<summary style="font-size: 28px;"><b>Finished commands</b></summary>
 
 ```bash
 #!/bin/bash
@@ -159,7 +160,8 @@ jobinfo
 # write the complete for loop and make a new folder for the cleaned reads quality report.
 ```
 
-<details><summary><b>Finished commands</b></summary>
+<details style="background-color: black;">
+<summary style="font-size: 28px;"><b>Finished commands</b></summary>
 
 ```bash
 #!/bin/bash
@@ -235,7 +237,8 @@ mv sample1_cleaned_filtlong.fastq.gz $output_dir
 NanoPlot --fastq $input_dir/file1_cleaned_filtlong.fastq.gz -o $output_dir -t 6 --maxlength 40000 --minlength 1000 --plots kde --format png --N50 --dpi 300 --store --raw --tsv_stats --info_in_report
 ```
 
-<details><summary><b>Finished commands</b></summary>
+<details style="background-color: black;">
+<summary style="font-size: 28px;"><b>Finished commands</b></summary>
 
 ```bash
 #!/bin/bash
@@ -300,7 +303,8 @@ jobinfo
 micromamba activate 03_unicycler
 unicycler -1 $short_read1 -2 $short_read2 -l $long_reads -o $output_dir -t 32
 ```
-<details><summary><b>Finished commands</b></summary>
+<details style="background-color: black;">
+<summary style="font-size: 28px;"><b>Finished commands</b></summary>
 
 ```bash
 # 3 Assembly (1 hour)-----------------------------------------------------------
@@ -388,7 +392,8 @@ micromamba activate 05_checkm2
 checkm2 predict --threads 12 --input $path_to/*.fasta --output-directory $output_dir
 ```
 
-<details><summary><b>Finished commands</b></summary>
+<details style="background-color: black;">
+<summary style="font-size: 28px;"><b>Finished commands</b></summary>
 
 ```bash
 # 4.3 Checkm2
@@ -421,7 +426,8 @@ micromamba activate 06_prokka
 prokka $input/assembly.fasta --outdir $output_dir --kingdom Bacteria --addgenes --cpus 32
 ```
 
-<details><summary><b>Finished commands</b></summary>
+<details style="background-color: black;">
+<summary style="font-size: 28px;"><b>Finished commands</b></summary>
 
 ```bash
 # 5 Annotate-----------------------------------------------------------
@@ -448,7 +454,8 @@ gtdbtk classify_wf --cpus 12 --genome_dir $input_fna_files --out_dir $output_dir
 #reduce cpu and increase the ram in bash script in order to have best performance
 ```
 
-<details><summary><b>Finished commands</b></summary>
+<details style="background-color: black;">
+<summary style="font-size: 28px;"><b>Finished commands</b></summary>
 
 ```bash
 # 6 Classification-----------------------------------------------------------
@@ -478,7 +485,8 @@ micromamba activate 01_short_reads_qc
 multiqc $input_dir -o $output_dir
 ```
 
-<details><summary><b>Finished commands</b></summary>
+<details style="background-color: black;">
+<summary style="font-size: 28px;"><b>Finished commands</b></summary>
 
 ```bash
 micromamba activate 01_short_reads_qc
