@@ -181,8 +181,8 @@ module load micromamba/1.4.2
 micromamba activate 01_short_reads_qc
 
 ## 1.1 fastqc raw reads
-# mkdir -p $WORK/genomics/1_short_reads_qc/1_fastqc_raw
-# for i in $WORK/genomics/0_raw_reads/short_reads/*.gz; do fastqc $i -o $WORK/genomics/1_short_reads_qc/1_fastqc_raw -t 32; done
+mkdir -p $WORK/genomics/1_short_reads_qc/1_fastqc_raw
+for i in $WORK/genomics/0_raw_reads/short_reads/*.gz; do fastqc $i -o $WORK/genomics/1_short_reads_qc/1_fastqc_raw -t 32; done
 
 ## 1.2 fastp 
 mkdir -p $WORK/genomics/1_short_reads_qc/2_cleaned_reads
