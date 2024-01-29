@@ -84,6 +84,35 @@ for i in ./add/absolute/path/*.gz; do fastqc $i -o ./add/absolute/path/output_di
 
 jobinfo
 ```
+
+<details style="background-color: black;">
+<summary style="font-size: 28px;"><b>Finished commands</b></summary>
+
+```bash
+#!/bin/bash
+#SBATCH --nodes=1
+#SBATCH --cpus-per-task=32
+#SBATCH --mem=128G
+#SBATCH --time=5:00:00
+#SBATCH --job-name=01_fastqc
+#SBATCH --output=01_fastqc.out
+#SBATCH --error=01_fastqc.err
+#SBATCH --partition=base
+#SBATCH --reservation=biol217
+
+module load gcc12-env/12.1.0
+module load miniconda3/4.12.0
+module load micromamba3/4.12.0
+micromamba activate 01_short_reads_qc
+
+## 1.1 fastqc raw reads
+mkdir -p $WORK/genomics/1_short_reads_qc/1_fastqc_raw
+for i in *.gz; do fastqc $i -o $WORK/genomics/1_short_reads_qc/1_fastqc_raw -t 32; done
+jobinfo
+```
+</details>
+
+
 #### 2.1.2. Run `fastp` 
 
 > Add `fastp` command and rerun the job script by commenting/disabling the fastqc command, as shown on [Day-2](./Tutorial_Day2.md).
