@@ -257,6 +257,7 @@ module load miniconda3/4.12.0
 module load micromamba/1.4.2
 
 echo "---------long reads cleaning started---------"
+
 eval "$(micromamba shell hook --shell=bash)"
 micromamba activate 02_long_reads_qc
 
@@ -281,6 +282,7 @@ NanoPlot --fastq $WORK/genomics/2_long_reads_qc/2_cleaned_reads/*.gz \
  --N50 --dpi 300 --store --raw --tsv_stats --info_in_report
 
 micromamba deactivate
+
 echo "---------long reads cleaning completed Successfully---------"
 
 module purge
