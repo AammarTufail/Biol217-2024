@@ -202,7 +202,8 @@ anvi-split -p V_jascida_52/PROFILE.db \
            -C default \
            -o V_jascida_52_SPLIT
 
-V_jascida_52_SPLIT/V_jascida_52_CLEAN/CONTIGS.db
+# Here are the files you created
+#V_jascida_52_SPLIT/V_jascida_52_CLEAN/CONTIGS.db
 
 sed 's/V_jascida_52.db/V_jascida_52_SPLIT\/V_jascida_52_CLEAN\/CONTIGS.db/g' external-genomes.txt > external-genomes-final.txt
 ```
