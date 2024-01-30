@@ -1,5 +1,5 @@
 # 
-$${\color{red}DAY 7}$$
+$${\color{red}DAY 8}$$
 # 
 # RNA-Seq analysis (Transcriptomics) - Tutorial
 
