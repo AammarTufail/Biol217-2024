@@ -7,14 +7,13 @@
 #SBATCH --output=anvio_installation.out
 #SBATCH --error=anvio_installation.err
 #SBATCH --partition=base
-#SBATCH --reservation=biol217
 
 #set proxy environment
 export http_proxy=http://relay:3128
 export https_proxy=http://relay:3128
 export ftp_proxy=http://relay:3128
 
-module load micromamba/1.3.1
+module load micromamba/1.4.2
 micromamba activate
 export MAMBA_ROOT_PREFIX=$HOME/.micromamba
 eval "$(micromamba shell hook --shell=bash)"
