@@ -18,7 +18,7 @@ micromamba activate
 export MAMBA_ROOT_PREFIX=$HOME/.micromamba
 eval "$(micromamba shell hook --shell=bash)"
 module load micromamba/1.4.2
-
+micromamba env remove -n anvio-8 -y
 micromamba create -y --name anvio-8 python=3.10
 micromamba activate anvio-8
 micromamba install -y -c conda-forge -c bioconda python=3.10 \
