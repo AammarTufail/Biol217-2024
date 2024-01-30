@@ -1,7 +1,7 @@
 #!/bin/bash
 #SBATCH --nodes=1
 #SBATCH --cpus-per-task=32
-#SBATCH --mem=32G
+#SBATCH --mem=64G
 #SBATCH --time=5:00:00
 #SBATCH --job-name=anvio_installation
 #SBATCH --output=anvio_installation.out
