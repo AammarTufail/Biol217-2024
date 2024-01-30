@@ -17,13 +17,14 @@ $${\color{red}DAY 7b}$$
   - [9. Estimate completeness of split vs. unsplit genome:](#9-estimate-completeness-of-split-vs-unsplit-genome)
   - [10. Compute pangenome](#10-compute-pangenome)
   - [11. Display the pangenome](#11-display-the-pangenome)
-
+ 
 
 ## Aim
 In this tutorial we will compare the genomes of 52 *Vibrio jasicida* strains using Anvio. We will create a pangenome and visualize it. We will also look at the completeness of the genomes and the contamination of the genomes. 
 
 This tutorial follows the workflow of the [anvi'o miniworkshop](https://merenlab.org/tutorials/vibrio-jasicida-pangenome/) and the [pangenomics workflow](https://merenlab.org/2016/11/08/pangenomics-v2/).
 
+> **`Note:`** There are some intentional typos, please have a look when you are typing your code.
 
 **Programs used:**
 
