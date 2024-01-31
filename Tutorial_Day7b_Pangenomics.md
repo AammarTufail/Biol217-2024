@@ -17,6 +17,7 @@ $${\color{red}DAY 7b}$$
   - [9. Estimate completeness of split vs. unsplit genome:](#9-estimate-completeness-of-split-vs-unsplit-genome)
   - [10. Compute pangenome](#10-compute-pangenome)
   - [11. Display the pangenome](#11-display-the-pangenome)
+  - [12. Compute the phylogomics with PyANI](#12-computing-phylogenomics-for-your-pangenome)
  
 
 ## Aim
