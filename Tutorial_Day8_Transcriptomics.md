@@ -205,7 +205,8 @@ for i in *.fastq.gz; do fastqc -t 4 -o ../qc_reports/fastqc_output $i; done
 1. Activate the environment:
 
 ```bash
-conda activate /home/sunam226/.conda/envs/grabseq
+module load micromamba/1.4.2
+micromamba activate 01_short_reads_qc
 ```
 
 2. Run `fastp`:
