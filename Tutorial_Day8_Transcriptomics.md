@@ -1,6 +1,6 @@
-# 
+###
 $${\color{red}DAY 8}$$
-# 
+### 
 # RNA-Seq analysis (Transcriptomics) - Tutorial
 
 ## Aim 
@@ -43,9 +43,9 @@ Tutorial taken from here, both commands and part of the explanation, mention as 
 ---
 ### **Example Run**
 
-# 
+### 
 $${\color{Yellow}Example1}$$
-# 
+### 
 
 ## **The Dataset we will use**
 The dataset you will use today comes from a publication by [*Kröger et al. 2013*](https://doi.org/10.1016/j.chom.2013.11.010).
@@ -128,9 +128,9 @@ jobinfo
 
 
 
-# 
+### 
 $${\color{red}Example2}$$
-# 
+### 
 ## Dataset to be used in the example
 
 The dataset you will use today comes from a publication by [*Prasse et al. 2017*](https://doi.org/10.1080/15476286.2017.1306170).
