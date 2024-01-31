@@ -148,7 +148,7 @@ Open the paper from this <a href="https://doi.org/10.1080/15476286.2017.1306170"
 ---
 
 ```bash
-grabseqs -t 4 -m metadata.csv SRR***
+grabseqs sra -t 4 -m metadata.csv SRR***
 ```
 <details><summary><b>Here you can see the commands</b></summary>
 Nevigate to new folder:
@@ -159,21 +159,21 @@ cd fastq
 Download the data specifying the SRA:
 
 ```bash
-grabseqs -t 4 -m ./metadata.csv SRR4018514
-grabseqs -t 4 -m ./metadata.csv SRR4018515
-grabseqs -t 4 -m ./metadata.csv SRR4018516
-grabseqs -t 4 -m ./metadata.csv SRR4018517
+grabseqs sra -t 4 -m ./metadata.csv SRR4018514
+grabseqs sra -t 4 -m ./metadata.csv SRR4018515
+grabseqs sra -t 4 -m ./metadata.csv SRR4018516
+grabseqs sra -t 4 -m ./metadata.csv SRR4018517
 ```
 
 Or, you can also use the following:
 
 ```bash
-grabseqs -t 4 -m metadata.csv SRR4018514 SRR4018515 SRR4018516 SRR4018517
+grabseqs sra -t 4 -m metadata.csv SRR4018514 SRR4018515 SRR4018516 SRR4018517
 ```
 Or, you can also use the following:
 
 ```bash
-grabseqs -t 4 -m SRP081251
+grabseqs sra -t 4 -m SRP081251
 ```
 </details>
 
