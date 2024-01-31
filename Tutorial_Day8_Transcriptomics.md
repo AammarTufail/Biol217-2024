@@ -129,7 +129,7 @@ module load micromamba/1.4.2
 micromamba activate 10_grabseqs
 
 # go the folder 
-cd $HOME/.micromamba/envs/10_grabseqs/lib/python3.7/site-packages/grabseqslib/
+# $HOME/.micromamba/envs/10_grabseqs/lib/python3.7/site-packages/grabseqslib/
 #open sra.py file
 #and replace the line 94 with the following one:
 metadata = requests.get("https://trace.ncbi.nlm.nih.gov/Traces/sra-db-be/runinfo?acc="+pacc) 
