@@ -249,14 +249,12 @@ Create a .bash script and run that in caucluster:
 #SBATCH --ntasks-per-node=1
 #SBATCH --cpus-per-task=8
 #SBATCH --mem=16G
-#SBATCH	--qos=long
 #SBATCH --time=0-01:00:00
-#SBATCH --partition=all
+#SBATCH --partition=base
 #SBATCH --reservation=biol217
 
-source ~/.bashrc
-module load miniconda3/4.7.12.1
-conda activate /home/sunam226/.conda/envs/grabseq
+module load micromamba/1.4.2
+micromamba activate 01_short_reads_qc
 mkdir fastq
 cd fastq
 grabseqs -t 4 -m ./metadata.csv SRR4018514
@@ -364,17 +362,15 @@ All commands used in the script are described here, step by step.
 #SBATCH --tasks-per-node=1
 #SBATCH --cpus-per-task=8
 #SBATCH --mem=32G
-#SBATCH --qos=long
 #SBATCH --time=1-00:00:00
-#SBATCH --partition=all
+#SBATCH --partition=base
 #SBATCH --export=NONE
 #SBATCH --reservation=biol217
 
-source ~/.bashrc
+module load gcc12-env/12.1.0
+module load miniconda3/4.12.0
+conda activate reademption
 
-#activating conda
-module load miniconda3/4.7.12.1
-conda activate /home/sunam226/.conda/envs/reademption
 reademption align -p 4 --poly_a_clipping --project_path READemption_analysis
 reademption coverage -p 4 --project_path READemption_analysis
 reademption gene_quanti -p 4 --features CDS,tRNA,rRNA --project_path READemption_analysis
