@@ -177,7 +177,8 @@ $${\color{Green}QualityControl}$$
 1. Activate the environment:
 
 ```bash
-module load fastqc
+module load micromamba/1.4.2
+micromamba activate 01_short_reads_qc
 fastqc -t 4 -o fastqc_output *.fastq.gz
 ```
 
