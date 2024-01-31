@@ -124,7 +124,10 @@ The dataset you will use today comes from a publication by [*Prasse et al. 2017*
 1. Activate the environment:
 
 ```bash
-use micromamba to activate grabseq
+#use micromamba to activate grabseq
+module load micromamba/1.4.2
+micromamba activate 10_grabseqs
+#usegrabseqs now
 ```
 
 2. Download the data specifying the SRA:
