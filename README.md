@@ -12,10 +12,10 @@ conda activate anvio-8
 `Run the command to display what you want`
 Then open a new terminal
 ```
-ssh -L 8060:localhost:8080 sunam216@caucluster.rz.uni-kiel.de
+ssh -L 8060:localhost:8080 sunam###@caucluster.rz.uni-kiel.de
 ```
 ```
-ssh -L 8080:localhost:8080 n100
+ssh -L 8080:localhost:8080 n#
 ```
 http://127.0.0.1:8060/
 Then close the connection with `ctrl c`
